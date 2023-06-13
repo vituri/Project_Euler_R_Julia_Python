@@ -1,0 +1,42 @@
+# Problems 1-10
+
+## Problem 1
+
+Enunciado
+
+### Julia
+
+```{julia}
+function p1()
+  1+1
+end;
+
+p1()
+```
+
+```{julia}
+using BenchmarkTools;
+@benchmark p1() evals = 10
+```
+
+
+### R
+
+```{r}
+p1 = function() {
+  1+1
+}
+
+p1()
+```
+
+```{r}
+bench::mark(p1(), iterations = 10)
+```
+
+### Python
+
+```{python}
+1+1
+```
+

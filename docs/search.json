@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "1  Problems 1-10",
+    "section": "",
+    "text": "1 + 1\n\n[1] 2\n\n\n\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\n\ndici = {'Oi': [1,2], 'Tchau': ['A', 'B']}\n\ndf = pd.DataFrame(dici)\n\ndomínio = np.arange(0, 5, 0.1)\nimagem = np.exp(domínio / 2)\n\n# define figura com dois slots de plot\nfig, (ax0, ax1) = plt.subplots(2,1)\n\nax0.plot(df['Tchau'], df['Oi'])\nax1.plot(domínio, imagem)\n\nplt.show()\n\n\n\n\n\nusing BenchmarkTools;\n\n@btime 1+1\n\n  1.132 ns (0 allocations: 0 bytes)\n\n\n2"
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "2  Summary",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Project Euler with R, Julia and Python",
+    "section": "",
+    "text": "Preface"
+  },
+  {
+    "objectID": "intro.html#problem-1",
+    "href": "intro.html#problem-1",
+    "title": "1  Problems 1-10",
+    "section": "Problem 1",
+    "text": "Problem 1\nEnunciado\n\nJulia\n\nusing BenchmarkTools;\n\n@benchmark 1+1\n\nBenchmarkTools.Trial: 10000 samples with 1000 evaluations.\n Range (min … max):  1.132 ns … 2.606 ns  ┊ GC (min … max): 0.00% … 0.00%\n Time  (median):     1.142 ns             ┊ GC (median):    0.00%\n Time  (mean ± σ):   1.139 ns ± 0.016 ns  ┊ GC (mean ± σ):  0.00% ± 0.00%\n\n  ▂                                                  █    ▆  \n  █▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁█ ▂\n  1.13 ns        Histogram: frequency by time       1.14 ns &lt;\n\n Memory estimate: 0 bytes, allocs estimate: 0.\n\n\n\n\nR\n\np1 = function() {\n  1+1\n}\n\np1()\n\n[1] 2\n\n\n\nbench::mark(p1())\n\n# A tibble: 1 × 6\n  expression      min   median `itr/sec` mem_alloc `gc/sec`\n  &lt;bch:expr&gt; &lt;bch:tm&gt; &lt;bch:tm&gt;     &lt;dbl&gt; &lt;bch:byt&gt;    &lt;dbl&gt;\n1 p1()          110ns    130ns  7268602.    8.19KB        0\n\n\n\n\nPython\n\n1+1\n\n2"
+  },
+  {
+    "objectID": "p1-10.html#problem-1",
+    "href": "p1-10.html#problem-1",
+    "title": "1  Problems 1-10",
+    "section": "Problem 1",
+    "text": "Problem 1\nEnunciado\n\nJulia\n\nfunction p1()\n  1+1\nend;\n\np1()\n\n2\n\n\n\nusing BenchmarkTools;\n@benchmark p1() evals = 10\n\nBenchmarkTools.Trial: 10000 samples with 10 evaluations.\n Range (min … max):  2.000 ns … 43.100 ns  ┊ GC (min … max): 0.00% … 0.00%\n Time  (median):     2.000 ns              ┊ GC (median):    0.00%\n Time  (mean ± σ):   2.356 ns ±  0.648 ns  ┊ GC (mean ± σ):  0.00% ± 0.00%\n\n  █    ▃                                              ▇    ▂ ▁\n  █▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁█ █\n  2 ns         Histogram: log(frequency) by time      3.1 ns &lt;\n\n Memory estimate: 0 bytes, allocs estimate: 0.\n\n\n\n\nR\n\np1 = function() {\n  1+1\n}\n\np1()\n\n[1] 2\n\n\n\nbench::mark(p1(), iterations = 10)\n\n# A tibble: 1 × 6\n  expression      min   median `itr/sec` mem_alloc `gc/sec`\n  &lt;bch:expr&gt; &lt;bch:tm&gt; &lt;bch:tm&gt;     &lt;dbl&gt; &lt;bch:byt&gt;    &lt;dbl&gt;\n1 p1()          140ns    211ns  3070685.    8.19KB        0\n\n\n\n\nPython\n\n1+1\n\n2"
+  }
+]
