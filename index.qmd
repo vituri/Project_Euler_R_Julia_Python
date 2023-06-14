@@ -1,4 +1,3 @@
 # Preface {.unnumbered}
 
-
-
+Solving the problems in https://projecteuler.net/archives using the 3 main data science languages.

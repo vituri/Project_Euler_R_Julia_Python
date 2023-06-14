@@ -8,7 +8,7 @@ book:
   date: "13/06/2023"
   chapters:
     - index.qmd
-    - p1-10.qmd
+    - p1_10.qmd
 
 # bibliography: references.bib
 
@@ -16,5 +16,5 @@ format:
   html:
     theme: cosmo
     number-depth: 1
-  pdf:
-    documentclass: scrreprt
+  # pdf:
+  #   documentclass: scrreprt

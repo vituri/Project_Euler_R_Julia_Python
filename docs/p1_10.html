@@ -106,7 +106,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./p1-10.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Problems 1-10</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./p1_10.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Problems 1-10</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -139,7 +139,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./p1-10.html" class="sidebar-item-text sidebar-link active">
+  <a href="./p1_10.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Problems 1-10</span></span></a>
   </div>
 </li>
@@ -158,6 +158,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#julia" id="toc-julia" class="nav-link" data-scroll-target="#julia">Julia</a></li>
   <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r">R</a></li>
   <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python">Python</a></li>
+  </ul></li>
+  <li><a href="#problem-2" id="toc-problem-2" class="nav-link" data-scroll-target="#problem-2">Problem 2</a>
+  <ul class="collapse">
+  <li><a href="#julia-1" id="toc-julia-1" class="nav-link" data-scroll-target="#julia-1">Julia</a></li>
+  </ul></li>
+  <li><a href="#problem-5" id="toc-problem-5" class="nav-link" data-scroll-target="#problem-5">Problem 5</a>
+  <ul class="collapse">
+  <li><a href="#julia-2" id="toc-julia-2" class="nav-link" data-scroll-target="#julia-2">Julia</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -184,67 +192,160 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="problem-1" class="level2">
 <h2 class="anchored" data-anchor-id="problem-1">Problem 1</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;p&gt;</span>If we list all the natural numbers below $10$ that are multiples of $3$ or $5$, we get $3, 5, 6$ and $9$. The sum of these multiples is $23$.<span class="kw">&lt;/p&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;p&gt;</span>Find the sum of all the multiples of $3$ or $5$ below $1000$.<span class="kw">&lt;/p&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>If we list all the natural numbers below $10$ that are multiples of $3$ or $5$, we get $3, 5, 6$ and $9$. The sum of these multiples is $23$.</p>
+<p>Find the sum of all the multiples of $3$ or $5$ below $1000$.</p>
 <section id="julia" class="level3">
 <h3 class="anchored" data-anchor-id="julia">Julia</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">p1</span>()</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fl">1</span><span class="op">+</span><span class="fl">1</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">p1</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">p1</span>()</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  [x for x <span class="op">∈</span> <span class="fl">1</span><span class="op">:</span><span class="fl">1000</span> if (x <span class="op">%</span> <span class="fl">3</span> <span class="op">==</span> <span class="fl">0</span> <span class="op">||</span> x <span class="op">%</span> <span class="fl">5</span> <span class="op">==</span> <span class="fl">0</span>)] <span class="op">|&gt;</span> sum</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">p1</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>2</code></pre>
+<pre><code>234168</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@benchmark</span> <span class="fu">p1</span>() evals <span class="op">=</span> <span class="fl">10</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@benchmark</span> <span class="fu">p1</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>BenchmarkTools.Trial: 10000 samples with 10 evaluations.
- Range (min … max):  2.000 ns … 15.000 ns  ┊ GC (min … max): 0.00% … 0.00%
- Time  (median):     2.000 ns              ┊ GC (median):    0.00%
- Time  (mean ± σ):   2.360 ns ±  0.500 ns  ┊ GC (mean ± σ):  0.00% ± 0.00%
+<pre><code>BenchmarkTools.Trial: 10000 samples with 8 evaluations.
+ Range (min … max):  3.568 μs … 140.086 μs  ┊ GC (min … max): 0.00% … 94.02%
+ Time  (median):     3.711 μs               ┊ GC (median):    0.00%
+ Time  (mean ± σ):   4.157 μs ±   3.584 μs  ┊ GC (mean ± σ):  2.93% ±  3.34%
 
-  █    ▃                                              ▇    ▂ ▁
-  █▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁█ █
-  2 ns         Histogram: log(frequency) by time      3.1 ns &lt;
+   ▆██▇▅▄▃▂▂▁▁                 ▂▄▄▅▅▄▄▃▃▃▂▂▂▂▂▂▁▁▁            ▂
+  ███████████████▇█▆▇▇▇▆▆▆▅▅▅▂▇█████████████████████▇▇█▇▆▇▇▅▅ █
+  3.57 μs      Histogram: log(frequency) by time      5.35 μs &lt;
 
- Memory estimate: 0 bytes, allocs estimate: 0.</code></pre>
+ Memory estimate: 7.61 KiB, allocs estimate: 6.</code></pre>
 </div>
 </div>
 </section>
 <section id="r" class="level3">
 <h3 class="anchored" data-anchor-id="r">R</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">=</span> <span class="cf">function</span>() {</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span><span class="sc">+</span><span class="dv">1</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">p1</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">=</span> <span class="cf">function</span>() {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span><span class="sc">+</span><span class="dv">1</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">p1</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>bench<span class="sc">::</span><span class="fu">mark</span>(<span class="fu">p1</span>(), <span class="at">iterations =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>bench<span class="sc">::</span><span class="fu">mark</span>(<span class="fu">p1</span>(), <span class="at">iterations =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 6
   expression      min   median `itr/sec` mem_alloc `gc/sec`
   &lt;bch:expr&gt; &lt;bch:tm&gt; &lt;bch:tm&gt;     &lt;dbl&gt; &lt;bch:byt&gt;    &lt;dbl&gt;
-1 p1()          130ns    185ns  3657937.    8.19KB        0</code></pre>
+1 p1()          120ns    156ns  3833252.    8.19KB        0</code></pre>
 </div>
 </div>
 </section>
 <section id="python" class="level3">
 <h3 class="anchored" data-anchor-id="python">Python</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="op">+</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="op">+</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>2</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="problem-2" class="level2">
+<h2 class="anchored" data-anchor-id="problem-2">Problem 2</h2>
+<section id="julia-1" class="level3">
+<h3 class="anchored" data-anchor-id="julia-1">Julia</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">p2</span>()</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    fibo <span class="op">=</span> [<span class="fl">1</span>, <span class="fl">2</span>]</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="cn">true</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>        current_fibo_term <span class="op">=</span> fibo[<span class="kw">end</span>] <span class="op">+</span> fibo[<span class="kw">end</span> <span class="op">-</span> <span class="fl">1</span>]</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> current_fibo_term <span class="op">&lt;</span> <span class="fl">4_000_000</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>            <span class="fu">push!</span>(fibo, current_fibo_term)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> </span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">end</span>        </span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [x for x <span class="op">∈</span> fibo if <span class="fu">iseven</span>(x)] <span class="op">|&gt;</span> sum</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="fu">p2</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>4613732</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@benchmark</span> <span class="fu">p2</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>BenchmarkTools.Trial: 10000 samples with 218 evaluations.
+ Range (min … max):  339.427 ns …   9.942 μs  ┊ GC (min … max): 0.00% … 94.69%
+ Time  (median):     349.261 ns               ┊ GC (median):    0.00%
+ Time  (mean ± σ):   394.634 ns ± 546.623 ns  ┊ GC (mean ± σ):  9.29% ±  6.43%
+
+  ▁▆█▇▆▃▂▂▂▂▁                                                   ▁
+  █████████████▇▇▇▇▇▇▆▆▅▆▆▅▆▆▅▅▅▄▅▅▅▅▅▅▅▆▇▆▆▆▆▅▄▆▅▇▇▅▆▇▅▄▅▅▅▄▄▄ █
+  339 ns        Histogram: log(frequency) by time        538 ns &lt;
+
+ Memory estimate: 1.02 KiB, allocs estimate: 7.</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="problem-5" class="level2">
+<h2 class="anchored" data-anchor-id="problem-5">Problem 5</h2>
+<section id="julia-2" class="level3">
+<h3 class="anchored" data-anchor-id="julia-2">Julia</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">sieve_of_eratosthenes</span>(n<span class="op">::</span><span class="dt">Integer</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    sieve <span class="op">=</span> <span class="fu">trues</span>(n)  <span class="co"># Create a boolean array to mark primes</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Set the multiples of primes as false (not prime)</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="fl">2</span><span class="op">:</span><span class="fu">isqrt</span>(n)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> sieve[i]</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> j <span class="kw">in</span> i<span class="op">^</span><span class="fl">2</span><span class="op">:</span>i<span class="op">:</span>n</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>                sieve[j] <span class="op">=</span> <span class="cn">false</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>            <span class="cf">end</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">end</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    primes <span class="op">=</span> <span class="fu">filter</span>(x <span class="op">-&gt;</span> sieve[x], <span class="fl">2</span><span class="op">:</span>n)  <span class="co"># Filter out non-primes</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> primes</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">p5</span>()</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="fu">BigInt</span>(<span class="fl">600851475143</span>)</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>    possible_primes <span class="op">=</span> <span class="fu">sieve_of_eratosthenes</span>(<span class="fu">isqrt</span>(n))</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>    id <span class="op">=</span> <span class="fu">findlast</span>(x <span class="op">-&gt;</span> n <span class="op">%</span> x <span class="op">==</span> <span class="fl">0</span>, possible_primes)    </span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> possible_primes[id]</span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a><span class="fu">p5</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>6857</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@benchmark</span> <span class="fu">p5</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>BenchmarkTools.Trial: 8 samples with 1 evaluation.
+ Range (min … max):  670.788 ms … 728.544 ms  ┊ GC (min … max): 21.88% … 23.32%
+ Time  (median):     677.346 ms               ┊ GC (median):    21.62%
+ Time  (mean ± σ):   687.802 ms ±  21.444 ms  ┊ GC (mean ± σ):  22.02% ±  0.84%
+
+        █                                                        
+  ▇▁▁▇▁▁█▁▁▁▁▁▇▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▇▁▁▁▁▁▁▁▁▁▁▁▁▁▇ ▁
+  671 ms           Histogram: frequency by time          729 ms &lt;
+
+ Memory estimate: 319.47 MiB, allocs estimate: 14553876.</code></pre>
 </div>
 </div>
 
