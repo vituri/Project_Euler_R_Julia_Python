@@ -211,13 +211,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@benchmark</span> <span class="fu">p1</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>BenchmarkTools.Trial: 10000 samples with 8 evaluations.
- Range (min … max):  3.568 μs … 140.086 μs  ┊ GC (min … max): 0.00% … 94.02%
- Time  (median):     3.711 μs               ┊ GC (median):    0.00%
- Time  (mean ± σ):   4.157 μs ±   3.584 μs  ┊ GC (mean ± σ):  2.93% ±  3.34%
+ Range (min … max):  3.557 μs … 199.304 μs  ┊ GC (min … max): 0.00% … 95.31%
+ Time  (median):     3.974 μs               ┊ GC (median):    0.00%
+ Time  (mean ± σ):   4.362 μs ±   5.058 μs  ┊ GC (mean ± σ):  3.88% ±  3.39%
 
-   ▆██▇▅▄▃▂▂▁▁                 ▂▄▄▅▅▄▄▃▃▃▂▂▂▂▂▂▁▁▁            ▂
-  ███████████████▇█▆▇▇▇▆▆▆▅▅▅▂▇█████████████████████▇▇█▇▆▇▇▅▅ █
-  3.57 μs      Histogram: log(frequency) by time      5.35 μs &lt;
+   ▂█▂                                                         
+  ▁███▅▄▃▂▂▂▃▃▃▃▃▂▂▂▂▁▁▁▂▂▃▄▄▄▃▃▂▃▂▂▂▂▂▂▂▂▂▁▁▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁ ▂
+  3.56 μs         Histogram: frequency by time        5.89 μs &lt;
 
  Memory estimate: 7.61 KiB, allocs estimate: 6.</code></pre>
 </div>
@@ -241,7 +241,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code># A tibble: 1 × 6
   expression      min   median `itr/sec` mem_alloc `gc/sec`
   &lt;bch:expr&gt; &lt;bch:tm&gt; &lt;bch:tm&gt;     &lt;dbl&gt; &lt;bch:byt&gt;    &lt;dbl&gt;
-1 p1()          120ns    156ns  3833252.    8.19KB        0</code></pre>
+1 p1()          130ns    165ns  3199231.    8.19KB        0</code></pre>
 </div>
 </div>
 </section>
@@ -282,14 +282,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools;</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@benchmark</span> <span class="fu">p2</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>BenchmarkTools.Trial: 10000 samples with 218 evaluations.
- Range (min … max):  339.427 ns …   9.942 μs  ┊ GC (min … max): 0.00% … 94.69%
- Time  (median):     349.261 ns               ┊ GC (median):    0.00%
- Time  (mean ± σ):   394.634 ns ± 546.623 ns  ┊ GC (mean ± σ):  9.29% ±  6.43%
+<pre><code>BenchmarkTools.Trial: 10000 samples with 219 evaluations.
+ Range (min … max):  336.932 ns …  10.536 μs  ┊ GC (min … max): 0.00% … 94.57%
+ Time  (median):     346.950 ns               ┊ GC (median):    0.00%
+ Time  (mean ± σ):   389.892 ns ± 543.059 ns  ┊ GC (mean ± σ):  9.49% ±  6.51%
 
-  ▁▆█▇▆▃▂▂▂▂▁                                                   ▁
-  █████████████▇▇▇▇▇▇▆▆▅▆▆▅▆▆▅▅▅▄▅▅▅▅▅▅▅▆▇▆▆▆▆▅▄▆▅▇▇▅▆▇▅▄▅▅▅▄▄▄ █
-  339 ns        Histogram: log(frequency) by time        538 ns &lt;
+   ▅▇██▆▄▃▃▃▂▂▁▁▁                                               ▂
+  ██████████████████▇▇▆▆▆▆▅▅▄▅▄▃▄▄▁▁▃▃▄▄▁▃▁▃▄▄▃▅▄▅▆██▇█▇▆▅▄▄▄▅▆ █
+  337 ns        Histogram: log(frequency) by time        496 ns &lt;
 
  Memory estimate: 1.02 KiB, allocs estimate: 7.</code></pre>
 </div>
@@ -319,7 +319,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span>
 <span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">p5</span>()</span>
-<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="fu">BigInt</span>(<span class="fl">600851475143</span>)</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="fl">600851475143</span></span>
 <span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>    possible_primes <span class="op">=</span> <span class="fu">sieve_of_eratosthenes</span>(<span class="fu">isqrt</span>(n))</span>
 <span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a></span>
@@ -336,16 +336,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools;</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@benchmark</span> <span class="fu">p5</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>BenchmarkTools.Trial: 8 samples with 1 evaluation.
- Range (min … max):  670.788 ms … 728.544 ms  ┊ GC (min … max): 21.88% … 23.32%
- Time  (median):     677.346 ms               ┊ GC (median):    21.62%
- Time  (mean ± σ):   687.802 ms ±  21.444 ms  ┊ GC (mean ± σ):  22.02% ±  0.84%
+<pre><code>BenchmarkTools.Trial: 2088 samples with 1 evaluation.
+ Range (min … max):  2.172 ms …   3.324 ms  ┊ GC (min … max): 0.00% … 12.62%
+ Time  (median):     2.355 ms               ┊ GC (median):    0.00%
+ Time  (mean ± σ):   2.393 ms ± 121.483 μs  ┊ GC (mean ± σ):  0.97% ±  2.38%
 
-        █                                                        
-  ▇▁▁▇▁▁█▁▁▁▁▁▇▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▇▁▁▁▁▁▁▁▁▁▁▁▁▁▇ ▁
-  671 ms           Histogram: frequency by time          729 ms &lt;
+              ██▂ ▅▂                                           
+  ▁▁▂▁▁▃▂▂▃▄▄▅██████▇▆▇▇▄▃▃▃▃▃▂▄▄▄▃▃▃▂▂▁▁▁▂▁▂▂▂▁▂▁▁▁▁▁▂▁▁▁▁▁▁ ▂
+  2.17 ms         Histogram: frequency by time        2.81 ms &lt;
 
- Memory estimate: 319.47 MiB, allocs estimate: 14553876.</code></pre>
+ Memory estimate: 6.48 MiB, allocs estimate: 8.</code></pre>
 </div>
 </div>
 
