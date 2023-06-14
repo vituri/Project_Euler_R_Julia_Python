@@ -45,7 +45,7 @@ function sieve_of_eratosthenes(n::Integer)
 end
 
 function p5()
-    n = BigInt(600851475143)
+    n = 600851475143
     
     possible_primes = sieve_of_eratosthenes(isqrt(n))
 
@@ -55,3 +55,4 @@ end;
 
 p5()
 @benchmark p5()
+@btime p5()
