@@ -2,6 +2,9 @@ project:
   type: book
   output-dir: docs
 
+execute:
+  freeze: auto  # re-render only when source changes
+
 book:
   title: "Project Euler with R, Julia and Python"
   author: "??????"
