@@ -91,13 +91,24 @@ using BenchmarkTools;
 ```
 
 ```{python}
+# def p2(roof = 4 * 10 ** 6):
+#     fibo = [1,2]
+#     while True:
+#         fibo = fibo + [fibo[-1] + fibo[-2]]
+#         if fibo[-1] > roof:
+#             break
+#     return sum([x for x in fibo if x % 2  == 0])
+
 def p2(roof = 4 * 10 ** 6):
-    fibo = [1,2]
+    a, b = 1, 2
+    even_sum = 0
     while True:
-        fibo = fibo + [fibo[-1] + fibo[-2]]
-        if fibo[-1] > roof:
+        if b % 2 == 0:
+            even_sum += b
+        a, b = b, a + b
+        if b > roof:
             break
-    return sum([x for x in fibo if x % 2  == 0])
+    return even_sum
 ```
 
 ```{python}
