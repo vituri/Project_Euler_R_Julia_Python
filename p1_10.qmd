@@ -42,7 +42,15 @@ bench::mark(p1(), iterations = 10)
 ### Python
 
 ```{python}
-1+1
+import numpy as np
+import timeit
+
+def p1(n = 1000):
+    return sum([x for x in np.arange(n) if x % 3 == 0 or x % 5 == 0])
+```
+
+```{python}
+%timeit p1()
 ```
 
 ## Problem 2
@@ -76,6 +84,78 @@ p2()
 ```{julia}
 using BenchmarkTools;
 @benchmark p2()
+```
+
+```{python}
+def p2(roof = 4 * 10 ** 6):
+    fibo = [1,2]
+    while True:
+        fibo = fibo + [fibo[-1] + fibo[-2]]
+        if fibo[-1] > roof:
+            break
+    return sum([x for x in fibo if x % 2  == 0])
+```
+
+```{python}
+%timeit p2()
+```
+
+## Problem 3
+::: {.callout-note icon=false}
+## Problem
+
+<p>The prime factors of $13195$ are $5, 7, 13$ and $29$.</p>
+<p>What is the largest prime factor of the number $600851475143$?</p>
+:::
+
+```{python}
+def p3(n):
+    # pdb.set_trace()
+    primes = []          
+    for lesser in range(2, n + 1):
+        
+        # is the number a multiple of a prime we have already found?
+        a_found_prime_divides = False
+        if len(primes) > 0:
+            for prime in primes:
+                if lesser % prime == 0:
+                    a_found_prime_divides = True
+                    break
+        
+        # if so, we know it is not a prime already
+        if a_found_prime_divides:
+            is_prime = False
+            
+        # elif (lesser - 1) % 6 > 0 and (lesser + 1) % 6 > 0 and lesser not in [2,3]:
+        #     is_prime = False
+        
+        # otherwise, start to look from the last prime we've found.
+        # The numbers in between them are all factors of primes, so we only need to check
+        # among the primes themselves, really. Hence, no need to always start with 2
+        else:
+            is_prime = True
+            if len(primes) > 0:
+                j = primes[-1] + 1
+            # if no prime has been found yet, start with 2
+            else:
+                j = 2
+            while j < lesser:
+                is_prime = not lesser % j == 0
+                if not is_prime:
+                    break
+                j += 1
+                
+        if is_prime:
+            primes.append(lesser)
+    
+    prime_factors = [prime for prime in primes if n % prime == 0]
+    
+    return max(prime_factors)
+```
+
+```{python}
+# %timeit p3(600851475143)
+print('not optimized just yet!')
 ```
 
 ## Problem 5
