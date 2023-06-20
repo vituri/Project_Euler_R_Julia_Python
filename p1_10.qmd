@@ -110,47 +110,25 @@ def p2(roof = 4 * 10 ** 6):
 
 ```{python}
 def p3(n):
-    # pdb.set_trace()
-    primes = []          
-    for lesser in range(2, n + 1):
+    
+    larger_prime_divisor = None
+    for lesser in range(n, 1, -1):
         
-        # is the number a multiple of a prime we have already found?
-        a_found_prime_divides = False
-        if len(primes) > 0:
-            for prime in primes:
-                if lesser % prime == 0:
-                    a_found_prime_divides = True
-                    break
-        
-        # if so, we know it is not a prime already
-        if a_found_prime_divides:
-            is_prime = False
-            
-        # elif (lesser - 1) % 6 > 0 and (lesser + 1) % 6 > 0 and lesser not in [2,3]:
-        #     is_prime = False
-        
-        # otherwise, start to look from the last prime we've found.
-        # The numbers in between them are all factors of primes, so we only need to check
-        # among the primes themselves, really. Hence, no need to always start with 2
-        else:
+        divides = n % lesser == 0
+        if divides:
             is_prime = True
-            if len(primes) > 0:
-                j = primes[-1] + 1
-            # if no prime has been found yet, start with 2
-            else:
-                j = 2
+            j = 2
             while j < lesser:
                 is_prime = not lesser % j == 0
                 if not is_prime:
                     break
                 j += 1
-                
-        if is_prime:
-            primes.append(lesser)
+            
+            if is_prime:
+                larger_prime_divisor = lesser
+                break
     
-    prime_factors = [prime for prime in primes if n % prime == 0]
-    
-    return max(prime_factors)
+    return larger_prime_divisor
 ```
 
 ```{python}
