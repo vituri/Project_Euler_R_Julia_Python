@@ -46,7 +46,7 @@ import numpy as np
 import timeit
 
 def p1(n = 1000):
-    return sum([x for x in np.arange(n) if x % 3 == 0 or x % 5 == 0])
+    return sum([x for x in range(n) if x % 3 == 0 or x % 5 == 0])
 ```
 
 ```{python}
