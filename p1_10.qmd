@@ -403,6 +403,46 @@ using BenchmarkTools;
 <p>What is the smallest positive number that is <dfn class="tooltip">evenly divisible<span class="tooltiptext">divisible with no remainder</span></dfn> by all of the numbers from $1$ to $20$?</p>
 :::
 
+## Problem 6
+      
+::: {.callout-note icon=false}
+## Problem
+
+<p> The sum of the squares of the first ten natural numbers is
+$1^2+ 2 ^2+ \dots + 10^2 = 385.$</p>
+<p>The square of the sum of the first ten natural numbers is
+$(1+ 2+ \dots + 10)^2 = 3025.$</p>
+</p>Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is $3025-385 = 2640.$</p>
+
+</p> Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum. </p>
+:::
+
+
+### R
+```{r}
+p6 = function(){
+  S1 =0
+  S2 = 0
+  
+  for(i in 1:100){
+    S1 = S1+i**2
+    S2 = S2+i
+  }
+  S2 = S2**2
+  
+  S1
+  S2
+  return(S2-S1)
+}
+
+p6()
+```
+
+```{r}
+bench::mark(p6(), iterations = 10)
+```
+
+
 ## Problem 8
 
 ::: {.callout-note icon=false}
