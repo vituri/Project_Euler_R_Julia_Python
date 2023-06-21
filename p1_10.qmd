@@ -299,26 +299,47 @@ using BenchmarkTools;
 ### Python
 
 ```{python}
+# trying without https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+import math
+
 def p3(n):
-  
-  larger_prime_divisor = None
-  for lesser in range(n, 1, -1):
     
-    divides = n % lesser == 0
-    if divides:
-      is_prime = True
-      j = 2
-      while j < lesser:
-        is_prime = not lesser % j == 0
-        if not is_prime:
-          break
-        j += 1
+    larger_prime_divisor = None
+    for lesser in range(int(n / 2 // 1), 1, -1):
         
-        if is_prime:
-          larger_prime_divisor = lesser
-          break
-        
-        return larger_prime_divisor
+        divides = n % lesser == 0
+        if divides:
+            
+            # a quick test if 'lesser' is not prime
+            if (lesser - 1) % 6 > 0:
+                if (lesser + 1) % 6 > 0:
+                    if lesser not in [2,3]:
+                        continue
+            
+            # decide if 'lesser' is prime by definition,
+            # but using the fact that the greatest prime divisor of 'lesser',
+            # if it is not 'lesser' itself and it exists, cannot be
+            # greater than sqrt(lesser)
+            # print(lesser)
+            is_prime = True            
+            j = 2
+            floor = math.sqrt(lesser)
+            # floor = lesser / 2 // 1
+            while j <= floor:
+                # print('   ' + str(j))
+                is_prime = not lesser % j == 0
+                if not is_prime:
+                    break
+                j += 1
+            
+            if is_prime:
+                larger_prime_divisor = lesser
+                break
+    
+    if larger_prime_divisor == None:
+        larger_prime_divisor = n
+    
+    return larger_prime_divisor
 ```
       
 ```{python}
@@ -381,6 +402,46 @@ using BenchmarkTools;
 <p>$2520$ is the smallest number that can be divided by each of the numbers from $1$ to $10$ without any remainder.</p>
 <p>What is the smallest positive number that is <dfn class="tooltip">evenly divisible<span class="tooltiptext">divisible with no remainder</span></dfn> by all of the numbers from $1$ to $20$?</p>
 :::
+
+## Problem 6
+      
+::: {.callout-note icon=false}
+## Problem
+
+<p> The sum of the squares of the first ten natural numbers is
+$1^2+ 2 ^2+ \dots + 10^2 = 385.$</p>
+<p>The square of the sum of the first ten natural numbers is
+$(1+ 2+ \dots + 10)^2 = 3025.$</p>
+</p>Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is $3025-385 = 2640.$</p>
+
+</p> Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum. </p>
+:::
+
+
+### R
+```{r}
+p6 = function(){
+  S1 =0
+  S2 = 0
+  
+  for(i in 1:100){
+    S1 = S1+i**2
+    S2 = S2+i
+  }
+  S2 = S2**2
+  
+  S1
+  S2
+  return(S2-S1)
+}
+
+p6()
+```
+
+```{r}
+bench::mark(p6(), iterations = 10)
+```
+
 
 ## Problem 8
 
