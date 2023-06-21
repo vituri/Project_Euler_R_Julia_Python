@@ -299,26 +299,47 @@ using BenchmarkTools;
 ### Python
 
 ```{python}
+# trying without https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+import math
+
 def p3(n):
-  
-  larger_prime_divisor = None
-  for lesser in range(n, 1, -1):
     
-    divides = n % lesser == 0
-    if divides:
-      is_prime = True
-      j = 2
-      while j < lesser:
-        is_prime = not lesser % j == 0
-        if not is_prime:
-          break
-        j += 1
+    larger_prime_divisor = None
+    for lesser in range(int(n / 2 // 1), 1, -1):
         
-        if is_prime:
-          larger_prime_divisor = lesser
-          break
-        
-        return larger_prime_divisor
+        divides = n % lesser == 0
+        if divides:
+            
+            # a quick test if 'lesser' is not prime
+            if (lesser - 1) % 6 > 0:
+                if (lesser + 1) % 6 > 0:
+                    if lesser not in [2,3]:
+                        continue
+            
+            # decide if 'lesser' is prime by definition,
+            # but using the fact that the greatest prime divisor of 'lesser',
+            # if it is not 'lesser' itself and it exists, cannot be
+            # greater than sqrt(lesser)
+            # print(lesser)
+            is_prime = True            
+            j = 2
+            floor = math.sqrt(lesser)
+            # floor = lesser / 2 // 1
+            while j <= floor:
+                # print('   ' + str(j))
+                is_prime = not lesser % j == 0
+                if not is_prime:
+                    break
+                j += 1
+            
+            if is_prime:
+                larger_prime_divisor = lesser
+                break
+    
+    if larger_prime_divisor == None:
+        larger_prime_divisor = n
+    
+    return larger_prime_divisor
 ```
       
 ```{python}
