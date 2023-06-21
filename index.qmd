@@ -1,3 +1,7 @@
 # Preface {.unnumbered}
 
-Solving the problems in https://projecteuler.net/archives using the 3 main data science languages.
+Solving the problems in [Project Euler](https://projecteuler.net/archives) using R, Julia and Python.
+
+This is intended to be an exercise on algorithms and optimization, and, of course, to show how fast Julia is :D
+
+The Julia solutions are written by [G. Vituri](https://github.com/vituri); the Python ones are written by [William](https://github.com/william-lima-p); and the R ones by [Laura](https://github.com/rinoscronauta) and the rest of my team.
