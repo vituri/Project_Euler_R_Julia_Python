@@ -2,7 +2,7 @@ using BenchmarkTools;
 
 # 1
 function p1()
-    [x for x ∈ 1:1000 if (x % 3 == 0 || x % 5 == 0)] |> sum
+    [x for x ∈ 1:999 if (x % 3 == 0 || x % 5 == 0)] |> sum
 end
 @benchmark p1()
 
@@ -25,6 +25,24 @@ p2()
 
 @benchmark p2()
 n = 1000
+
+# 2 otimizado
+function p2()
+    a, b = 1, 2
+    sum = 2
+    while true
+        current_fibo_term = a + b
+        current_fibo_term > 4_000_000 && break
+        iseven(current_fibo_term) && (sum += current_fibo_term)
+        a, b = b, current_fibo_term
+    end
+    return sum
+end;
+p2()
+
+@benchmark p2()
+n = 1000
+
 
 # 3
 function sieve_of_eratosthenes(n::Integer)
@@ -56,6 +74,45 @@ end;
 p5()
 @benchmark p5()
 @btime p5()
+
+# 4
+n = 101
+
+"101"[1] == "101"[3]
+
+s = string(n)
+
+s[1]
+
+function is_palindrome(s::AbstractString)
+    l = length(s)
+
+    for i ∈ 1:fld(l, 2)
+        s[i] != s[l + 1 - i] && return false        
+    end
+
+    return true
+end
+
+is_palindrome(n::Integer) = is_palindrome(string(n))
+
+function p4()
+    for x ∈ 999:100
+        for y ∈ 999:100
+            p = x * y
+            println(p)
+            if is_palindrome(p) 
+                return(x, y, p)
+            end
+        end
+    end
+
+    # return (0, 0, 0)
+end
+
+p4()
+
+reverse(100:999)
 
 # 8
 function p8()
@@ -101,3 +158,19 @@ function p8()
   a, b = p8()
 
 reduce(*, a)
+
+
+using JuMP; using SCIP;
+
+model = Model(SCIP.Optimizer)
+@variable(model, a >= 1, Int)
+@variable(model, b >= 1, Int)
+@variable(model, c >= 1, Int)
+@objective(model, Min, a)
+@constraint(model, pitagorean, a^2 + b^2 == c^2)
+@constraint(model, sum_1000, a + b + c == 1000)
+print(model)
+optimize!(model)
+model
+objective_value(model)
+x = value(a), value(b), value(c)
