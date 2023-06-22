@@ -256,22 +256,31 @@ def p2(roof = 4 * 10 ** 6):
     if fibo[-1] > roof:
       break
     return sum([x for x in fibo if x % 2  == 0])
-  
-  # def p2(roof = 4 * 10 ** 6):
-  #     a, b = 1, 2
-  #     even_sum = 0
-  #     while True:
-  #         if b % 2 == 0:
-  #             even_sum += b
-  #         a, b = b, a + b
-  #         if b > roof:
-  #             break
-  #     return even_sum
 ```
   
 ```{python}
   # %timeit p2()
 ```
+
+### Python (optimized)
+
+```{python}
+def p2(roof = 4 * 10 ** 6):
+    a, b = 1, 2
+    even_sum = 0
+    while True:
+        if b % 2 == 0:
+            even_sum += b
+        a, b = b, a + b
+        if b > roof:
+            break
+    return even_sum
+```
+
+```{python}
+  # %timeit p2()
+```
+
   
 ## Problem 3
 ::: {.callout-note icon=false}
@@ -399,6 +408,25 @@ using BenchmarkTools;
 @benchmark p4()
 ```
 
+```{python}
+def is_palindrome(x):
+    idx = len(str(x)) // 2
+    return str(x)[:idx] == str(x)[-idx:][::-1]
+
+def p4():
+    three_digits = range(100, 1000, 1)
+    for i in three_digits:
+        for j in three_digits:
+            prod = i * j
+            if is_palindrome(prod):
+                return prod, i, j
+    
+    return None
+```
+
+```{python}
+# %timeit p4()
+```
 
 ## Problem 5
       
