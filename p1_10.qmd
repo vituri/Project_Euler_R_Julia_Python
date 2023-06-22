@@ -360,7 +360,7 @@ def p3(n):
 ```
       
 ```{python}
-p3(600851475143)
+# p3(600851475143)
 print('not optimized just yet!')
 ```
 
@@ -573,7 +573,7 @@ def p5(roof = 20, silent = True):
 ```
 
 ```{python}
-p5()
+# p5()
 ```
 
 ## Problem 6
@@ -651,7 +651,7 @@ def p6(n):
 ```
 
 ```{python}
-p6()
+# p6()
 ```
 ## Problem 7
 
