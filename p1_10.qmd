@@ -261,7 +261,7 @@ def p2(roof = 4 * 10 ** 6):
 ```
   
 ```{python}
-  # %timeit p2()
+p2()
 ```
 
 ### Python (optimized)
@@ -280,7 +280,7 @@ def p2(roof = 4 * 10 ** 6):
 ```
 
 ```{python}
-  # %timeit p2()
+p2()
 ```
 
   
@@ -360,7 +360,7 @@ def p3(n):
 ```
       
 ```{python}
-# %timeit p3(600851475143)
+# p3(600851475143)
 print('not optimized just yet!')
 ```
 
@@ -449,13 +449,7 @@ def p4():
 
 ### Julia (using lcm)
 ```{julia}
-function p5()
-  n = 1
-  for p ∈ 2:20
-      n = lcm(p, n)
-  end
-  return n
-end;
+p5() = lcm(1:20...);
 p5()
 ```
 
@@ -583,7 +577,7 @@ def p5(roof = 20, silent = True):
 ```
 
 ```{python}
-# %timeit p5()
+# p5()
 ```
 
 ## Problem 6
@@ -661,7 +655,7 @@ def p6(n):
 ```
 
 ```{python}
-# %timeit p6()
+# p6()
 ```
 ## Problem 7
 
