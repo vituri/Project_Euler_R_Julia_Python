@@ -443,6 +443,24 @@ def p4():
 <p>What is the smallest positive number that is <dfn class="tooltip">evenly divisible<span class="tooltiptext">divisible with no remainder</span></dfn> by all of the numbers from $1$ to $20$?</p>
 :::
 
+### Julia (using lcm)
+```{julia}
+function p5()
+  n = 1
+  for p ∈ 2:20
+      n = lcm(p, n)
+  end
+  return n
+end;
+p5()
+```
+
+```{julia}
+using BenchmarkTools;
+@benchmark p5()
+```
+
+
 ### Julia
 ```{julia}
 function prime_decomposition(n::Integer)
