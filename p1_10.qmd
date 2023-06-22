@@ -1,5 +1,29 @@
 # Problems 1-10
 
+## Prelude
+
+### Julia
+```{julia}
+# define a function that give prime numbers up to n
+function sieve_of_eratosthenes(n::Integer)
+  sieve = trues(n)  # Create a boolean array to mark primes
+  
+  # Set the multiples of primes as false (not prime)
+  for i in 2:isqrt(n)
+    if sieve[i]
+      for j in i^2:i:n
+        sieve[j] = false
+      end
+    end
+  end
+  
+  primes = filter(x -> sieve[x], 2:n)  # Filter out non-primes
+  
+  return primes
+end;
+```
+
+
 ## Problem 1
 
 ::: {.callout-note icon=false}
@@ -259,29 +283,11 @@ def p2(roof = 4 * 10 ** 6):
   
 ### Julia
 ```{julia}
-# define a function that give prime numbers up to n
-function sieve_of_eratosthenes(n::Integer)
-  sieve = trues(n)  # Create a boolean array to mark primes
-  
-  # Set the multiples of primes as false (not prime)
-  for i in 2:isqrt(n)
-    if sieve[i]
-      for j in i^2:i:n
-        sieve[j] = false
-      end
-    end
-  end
-  
-  primes = filter(x -> sieve[x], 2:n)  # Filter out non-primes
-  
-  return primes
-end;
-
 function p3()
   n = 600851475143
   
   # get all primes lesses than sqrt(n)
-  possible_primes = sieve_of_eratosthenes(isqrt(n))
+  possible_primes = sieve_of_eratosthenes(isqrt(n)) # see prelude
   
   # get the biggest one
   id = findlast(x -> n % x == 0, possible_primes)    
@@ -469,7 +475,60 @@ p6()
 bench::mark(p6())
 ```
 
+## Problem 7
 
+::: {.callout-note icon=false}
+## Problem
+      
+<p>By listing the first six prime numbers: $2, 3, 5, 7, 11$, and $13$, we can see that the $6$th prime is $13$.</p>
+<p>What is the $10\,001$st prime number?</p>
+:::
+
+### Julia
+
+```{julia}
+is_divisible_by(n::Integer, q::Integer) = n % q == 0;
+
+function find_next_prime(primes)
+    n = primes[end]
+    while true        
+        n += 2
+
+        not_prime = false
+    
+        for q ∈ primes
+            not_prime = is_divisible_by(n, q)
+            if not_prime
+                break                
+            end            
+        end
+
+        if not_prime 
+            continue 
+        end
+    
+        return(n)        
+    end    
+end;
+
+function find_n_primes(n::Integer)
+    primes = [2, 3]
+    while length(primes) < n
+        next_prime = find_next_prime(primes)
+        push!(primes, next_prime)
+    end
+
+    return primes
+end;
+
+p7() = find_n_primes(10_001)[end];
+p7()
+```
+
+```{julia}
+using BenchmarkTools;
+@benchmark p7()
+```
 
 ## Problem 8
 
@@ -616,3 +675,18 @@ using BenchmarkTools;
 <p>Find the sum of all the primes below two million.</p>
 :::
 
+### Julia
+
+
+```{julia}
+function p10()
+  sieve_of_eratosthenes(2_000_000) |> sum
+end;
+p10()
+```
+
+
+```{julia}
+using BenchmarkTools;
+@benchmark p10()
+```
