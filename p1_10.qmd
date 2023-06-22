@@ -414,6 +414,44 @@ using BenchmarkTools;
 @benchmark p4()
 ```
 
+### R
+
+```{r}
+palindrome = function(n){
+  n = as.character(n)
+  
+  r = n |> strsplit("") |> unlist() |> rev() |> paste(collapse = "")
+  
+  r == n
+}
+
+p4= function(){
+largest_palindrome = 0
+a = 0
+b =0
+
+for(i in 999:100){
+  for(j in 999:i){
+    n= i*j
+    if(n<largest_palindrome) break
+    if(palindrome(n)){
+      largest_palindrome =n
+      a=i
+      b=j}
+  }
+}
+
+return(list(largest_palindrome, a, b))
+}
+
+p4()
+```
+
+```{r}
+bench::mark(p4())
+```
+
+### Python
 ```{python}
 def is_palindrome(x):
     idx = len(str(x)) // 2
