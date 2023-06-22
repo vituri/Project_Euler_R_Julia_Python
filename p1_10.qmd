@@ -529,40 +529,46 @@ def evenly_divisible(x, y):
 
 def p5(roof = 20, silent = True):
     # pdb.set_trace()
-    seq = [1, 2]
+    
+    if roof < 3:
+        return roof
+    
+    seq = [2]
     if not silent:
         print('  adding: 2')
         
     candidate = 3
     while True:
         
-        # product two by two, then three by three, and it goes on
-        for r in range(2, len(seq) + 1):   
+        if not evenly_divisible(candidate, math.prod(seq)):
         
-            possible_combinations = itertools.combinations(seq, r)
-            is_product = False
-            for comb in possible_combinations:
-                prod = math.prod(comb)
+        # product two by two, then three by three, and it goes on
+            for r in range(1, len(seq) + 1):   
+            
+                possible_combinations = itertools.combinations(seq, r)
+                is_product = False
+                for comb in possible_combinations:
+                    prod = math.prod(comb)
+                    
+                    # if the candidate is a product of numbers in sequence, we don't add it to the sequence
+                    if candidate == prod:
+                        is_product = True
+                        break
                 
-                # if the candidate is a product of numbers in sequence, we don't add it to the sequence
-                if candidate == prod:
-                    is_product = True
+                if is_product:
                     break
             
-            if is_product:
-                break
-        
-        # if it is not a product, take the candidate and divide it
-        # by all the numbers within the sequence that divide it
-        # That way, the sequence will have a subsequence of elements whose product
-        # divides the candidate
-        if not is_product:
-            candidate_divisors = [x for x in seq if evenly_divisible(candidate, x)]
-            to_add = int(candidate / math.prod(candidate_divisors))
-            seq.append(to_add)
-            if not silent:
-                print('candidate:', candidate)
-                print('  adding:', to_add)
+            # if it is not a product, take the candidate and divide it
+            # by all the numbers within the sequence that divide it
+            # That way, the sequence will have a subsequence of elements whose product
+            # divides the candidate
+            if not is_product:
+                candidate_divisors = [x for x in seq if evenly_divisible(candidate, x)]
+                to_add = int(candidate / math.prod(candidate_divisors))
+                seq.append(to_add)
+                if not silent:
+                    print('candidate:', candidate)
+                    print('  adding:', to_add)
         
         if candidate == roof:
             break
