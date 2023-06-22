@@ -258,22 +258,31 @@ def p2(roof = 4 * 10 ** 6):
     if fibo[-1] > roof:
       break
     return sum([x for x in fibo if x % 2  == 0])
-  
-  # def p2(roof = 4 * 10 ** 6):
-  #     a, b = 1, 2
-  #     even_sum = 0
-  #     while True:
-  #         if b % 2 == 0:
-  #             even_sum += b
-  #         a, b = b, a + b
-  #         if b > roof:
-  #             break
-  #     return even_sum
 ```
   
 ```{python}
   # %timeit p2()
 ```
+
+### Python (optimized)
+
+```{python}
+def p2(roof = 4 * 10 ** 6):
+    a, b = 1, 2
+    even_sum = 0
+    while True:
+        if b % 2 == 0:
+            even_sum += b
+        a, b = b, a + b
+        if b > roof:
+            break
+    return even_sum
+```
+
+```{python}
+  # %timeit p2()
+```
+
   
 ## Problem 3
 ::: {.callout-note icon=false}
@@ -405,6 +414,25 @@ using BenchmarkTools;
 @benchmark p4()
 ```
 
+```{python}
+def is_palindrome(x):
+    idx = len(str(x)) // 2
+    return str(x)[:idx] == str(x)[-idx:][::-1]
+
+def p4():
+    three_digits = range(100, 1000, 1)
+    for i in three_digits:
+        for j in three_digits:
+            prod = i * j
+            if is_palindrome(prod):
+                return prod, i, j
+    
+    return None
+```
+
+```{python}
+# %timeit p4()
+```
 
 ## Problem 5
       
@@ -461,6 +489,74 @@ using BenchmarkTools;
 @benchmark p5()
 ```
 
+
+### Python
+
+```{python}
+import numpy as np
+import itertools
+
+def evenly_divisible(x, y):
+    return x % y == 0
+
+# def evenly_divisible_map(x, roof):
+#     return all(map(evenly_divisible, np.repeat(x, roof), range(1, roof + 1)))
+# 
+# def p5(roof = 20):
+#     x = roof
+#     while True:
+#         if evenly_divisible_map(x, roof):
+#             return x
+#         x += 1
+
+def p5(roof = 20, silent = True):
+    # pdb.set_trace()
+    seq = [1, 2]
+    if not silent:
+        print('  adding: 2')
+        
+    candidate = 3
+    while True:
+        
+        # product two by two, then three by three, and it goes on
+        for r in range(2, len(seq) + 1):   
+        
+            possible_combinations = itertools.combinations(seq, r)
+            is_product = False
+            for comb in possible_combinations:
+                prod = np.prod(comb)
+                
+                # if the candidate is a product of numbers in sequence, we don't add it to the sequence
+                if candidate == prod:
+                    is_product = True
+                    break
+            
+            if is_product:
+                break
+        
+        # if it is not a product, take the candidate and divide it
+        # by all the numbers within the sequence that divide it
+        # That way, the sequence will have a subsequence of elements whose product
+        # divides the candidate
+        if not is_product:
+            candidate_divisors = [x for x in seq if evenly_divisible(candidate, x)]
+            to_add = int(candidate / np.prod(candidate_divisors))
+            seq.append(to_add)
+            if not silent:
+                print('candidate:', candidate)
+                print('  adding:', to_add)
+        
+        if candidate == roof:
+            break
+        
+        candidate += 1
+    
+    return np.prod(seq)
+```
+
+```{python}
+# %timeit p5()
+```
 
 ## Problem 6
       
