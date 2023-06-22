@@ -493,7 +493,7 @@ using BenchmarkTools;
 ### Python
 
 ```{python}
-import numpy as np
+import math
 import itertools
 
 def evenly_divisible(x, y):
@@ -524,7 +524,7 @@ def p5(roof = 20, silent = True):
             possible_combinations = itertools.combinations(seq, r)
             is_product = False
             for comb in possible_combinations:
-                prod = np.prod(comb)
+                prod = math.prod(comb)
                 
                 # if the candidate is a product of numbers in sequence, we don't add it to the sequence
                 if candidate == prod:
@@ -540,7 +540,7 @@ def p5(roof = 20, silent = True):
         # divides the candidate
         if not is_product:
             candidate_divisors = [x for x in seq if evenly_divisible(candidate, x)]
-            to_add = int(candidate / np.prod(candidate_divisors))
+            to_add = int(candidate / math.prod(candidate_divisors))
             seq.append(to_add)
             if not silent:
                 print('candidate:', candidate)
@@ -551,7 +551,7 @@ def p5(roof = 20, silent = True):
         
         candidate += 1
     
-    return np.prod(seq)
+    return math.prod(seq)
 ```
 
 ```{python}
@@ -624,6 +624,17 @@ p6()
 bench::mark(p6())
 ```
 
+### Python
+
+```{python}
+def p6(n):
+    seq = range(1,n+1)
+    return sum(seq)**2 - sum([math.prod(x) for x in zip(seq, seq)])
+```
+
+```{python}
+# %timeit p6()
+```
 ## Problem 7
 
 ::: {.callout-note icon=false}
