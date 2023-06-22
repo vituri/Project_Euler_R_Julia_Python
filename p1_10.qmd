@@ -414,20 +414,62 @@ using BenchmarkTools;
 @benchmark p4()
 ```
 
+### R
+
+```{r}
+palindrome = function(n){
+  n = as.character(n)
+  
+  r = n |> strsplit("") |> unlist() |> rev() |> paste(collapse = "")
+  
+  r == n
+}
+
+p4= function(){
+largest_palindrome = 0
+a = 0
+b =0
+
+for(i in 999:100){
+  for(j in 999:i){
+    n= i*j
+    if(n<largest_palindrome) break
+    if(palindrome(n)){
+      largest_palindrome =n
+      a=i
+      b=j}
+  }
+}
+
+return(list(largest_palindrome, a, b))
+}
+
+p4()
+```
+
+```{r}
+bench::mark(p4())
+```
+
+### Python
 ```{python}
 def is_palindrome(x):
     idx = len(str(x)) // 2
     return str(x)[:idx] == str(x)[-idx:][::-1]
 
 def p4():
-    three_digits = range(100, 1000, 1)
+    greatest, g_i, g_j = 0, 0, 0
+    three_digits = range(999, 99, -1)
     for i in three_digits:
         for j in three_digits:
             prod = i * j
-            if is_palindrome(prod):
-                return prod, i, j
+            if prod > greatest:
+                if is_palindrome(prod):
+                    greatest, g_i, g_j = prod, i, j
+            else:
+                continue
     
-    return None
+    return greatest, g_i, g_j
 ```
 
 ```{python}
