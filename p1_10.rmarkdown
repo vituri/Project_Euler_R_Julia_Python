@@ -5,6 +5,7 @@
 Functions shared among some exercises.
 
 ### Julia
+
 ```{julia}
 # define a function that give prime numbers up to n
 function sieve_of_eratosthenes(n::Integer)
@@ -26,6 +27,7 @@ end;
 ```
 
 
+
 ## Problem 1
 
 ::: {.callout-note icon=false}
@@ -36,6 +38,7 @@ end;
 :::
 
 ### Julia
+
 
 ```{julia}
 function p1()
@@ -51,7 +54,9 @@ using BenchmarkTools;
 ```
 
 
+
 ### R
+
 
 ```{r}
 p1 = function() {
@@ -85,7 +90,9 @@ p1()
 bench::mark(p1())
 ```
 
+
 ### R
+
 
 ```{r}
 p1 = function(){
@@ -106,7 +113,9 @@ p1()
 bench::mark(p1())
 ```
 
+
 ### Python
+
 
 ```{python}
 def p1(n = 1000):
@@ -119,6 +128,7 @@ p1()
 # p1()
 ```
 
+
 ## Problem 2
 ::: {.callout-note icon=false}
 ## Problem
@@ -129,6 +139,7 @@ $1, 2, 3, 5, 8, 13, 21, 34, 55, 89, \dots$</p>
 :::
 
 ### Julia
+
 
 ```{julia}
 function p2()
@@ -151,19 +162,18 @@ end;
 p2()
 ```
 
-
-
 ```{julia}
   1+1
 ```
-
 
 ```{julia}
 using BenchmarkTools;
 @benchmark p2()
 ```
 
+
 ### Julia (optimized)
+
 
 ```{julia}
 function p2()
@@ -185,7 +195,9 @@ using BenchmarkTools;
 @benchmark p2()
 ```
 
+
 ### R
+
 ```{R}
 p2 = function() {
   ultimofibo = 2
@@ -217,7 +229,9 @@ p2()
 bench::mark(p2())
 ```
 
+
 ### R (optimized)
+
 ```{R}
 p2 = function() {
   ultimofibo = 2
@@ -248,7 +262,9 @@ bench::mark(p2())
 ```
 
 
+
 ### Python
+
 
 ```{python}
 def p2(roof = 4 * 10 ** 6):
@@ -259,12 +275,14 @@ def p2(roof = 4 * 10 ** 6):
       break
     return sum([x for x in fibo if x % 2  == 0])
 ```
-  
+
 ```{python}
 p2()
 ```
 
+
 ### Python (optimized)
+
 
 ```{python}
 def p2(roof = 4 * 10 ** 6):
@@ -283,6 +301,7 @@ def p2(roof = 4 * 10 ** 6):
 p2()
 ```
 
+
   
 ## Problem 3
 ::: {.callout-note icon=false}
@@ -293,6 +312,7 @@ p2()
 :::
   
 ### Julia
+
 ```{julia}
 function p3()
   n = 600851475143
@@ -313,7 +333,9 @@ using BenchmarkTools;
 @benchmark p3()
 ```
 
+
 ### Python
+
 
 ```{python}
 # trying without https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
@@ -358,11 +380,12 @@ def p3(n):
     
     return larger_prime_divisor
 ```
-      
+
 ```{python}
 p3(600851475143)
 print('not optimized just yet!')
 ```
+
 
 ## Problem 4
       
@@ -374,6 +397,7 @@ print('not optimized just yet!')
 :::
 
 ### Julia
+
 
 ```{julia}
 function is_palindrome(s::AbstractString)
@@ -434,6 +458,7 @@ def p4():
 # %timeit p4()
 ```
 
+
 ## Problem 5
       
 ::: {.callout-note icon=false}
@@ -444,6 +469,7 @@ def p4():
 :::
 
 ### Julia (using lcm)
+
 ```{julia}
 p5() = lcm(1:20...);
 p5()
@@ -455,7 +481,9 @@ using BenchmarkTools;
 ```
 
 
+
 ### Julia
+
 ```{julia}
 function prime_decomposition(n::Integer)
     possible_primes = sieve_of_eratosthenes(n)
@@ -502,7 +530,9 @@ using BenchmarkTools;
 ```
 
 
+
 ### Python
+
 
 ```{python}
 import math
@@ -576,6 +606,7 @@ def p5(roof = 20, silent = True):
 p5()
 ```
 
+
 ## Problem 6
       
 ::: {.callout-note icon=false}
@@ -592,6 +623,7 @@ $(1+ 2+ \dots + 10)^2 = 3025.$</p>
 
 ### Julia
 
+
 ```{julia}
 function p6()
   sum(1:100)^2 - sum((1:100).^2)
@@ -605,7 +637,9 @@ using BenchmarkTools;
 ```
 
 
+
 ### R
+
 ```{r}
 p6 = function(){
   S1 =0
@@ -629,7 +663,9 @@ p6()
 bench::mark(p6())
 ```
 
+
 ### R (shorter)
+
 ```{r}
 p6 = function() {
   sum(1:100)^2 - sum((1:100)^2)
@@ -642,7 +678,9 @@ p6()
 bench::mark(p6())
 ```
 
+
 ### Python
+
 
 ```{python}
 def p6(n):
@@ -653,6 +691,7 @@ def p6(n):
 ```{python}
 p6()
 ```
+
 ## Problem 7
 
 ::: {.callout-note icon=false}
@@ -663,6 +702,7 @@ p6()
 :::
 
 ### Julia
+
 
 ```{julia}
 is_divisible_by(n::Integer, q::Integer) = n % q == 0;
@@ -708,6 +748,7 @@ using BenchmarkTools;
 @benchmark p7()
 ```
 
+
 ## Problem 8
 
 ::: {.callout-note icon=false}
@@ -740,6 +781,7 @@ using BenchmarkTools;
       
 ### Julia
       
+
 ```{julia}
 function p8()
   big_string = "73167176531330624919225119674426574742355349194934
@@ -788,6 +830,7 @@ using BenchmarkTools;
 @benchmark p8()
 ```
 
+
 ## Problem 9
 
 ::: {.callout-note icon=false}
@@ -800,6 +843,7 @@ $a^2 + b^2 = c^2.$</p>
 :::
 
 ### Julia
+
 ```{julia}
 function p9()
     for a ∈ 1:999
@@ -820,7 +864,9 @@ using BenchmarkTools;
 @benchmark p9()
 ```
 
+
 ### Julia (using JuMP)
+
 ```{julia}
 using JuMP; using SCIP;
 
@@ -844,6 +890,7 @@ using BenchmarkTools;
 @benchmark p9()
 ```
 
+
 ## Problem 10
 
 ::: {.callout-note icon=false}
@@ -856,6 +903,7 @@ using BenchmarkTools;
 ### Julia
 
 
+
 ```{julia}
 function p10()
   sieve_of_eratosthenes(2_000_000) |> sum
@@ -863,8 +911,8 @@ end;
 p10()
 ```
 
-
 ```{julia}
 using BenchmarkTools;
 @benchmark p10()
 ```
+
