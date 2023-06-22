@@ -203,29 +203,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#julia-4" id="toc-julia-4" class="nav-link" data-scroll-target="#julia-4">Julia</a></li>
   </ul></li>
-  <li><a href="#problem-5-1" id="toc-problem-5-1" class="nav-link" data-scroll-target="#problem-5-1">Problem 5</a></li>
-  <li><a href="#problem-6-1" id="toc-problem-6-1" class="nav-link" data-scroll-target="#problem-6-1">Problem 6</a>
+  <li><a href="#problem-5-1" id="toc-problem-5-1" class="nav-link" data-scroll-target="#problem-5-1">Problem 5</a>
   <ul class="collapse">
   <li><a href="#julia-5" id="toc-julia-5" class="nav-link" data-scroll-target="#julia-5">Julia</a></li>
+  </ul></li>
+  <li><a href="#problem-6-1" id="toc-problem-6-1" class="nav-link" data-scroll-target="#problem-6-1">Problem 6</a>
+  <ul class="collapse">
+  <li><a href="#julia-6" id="toc-julia-6" class="nav-link" data-scroll-target="#julia-6">Julia</a></li>
   <li><a href="#r-3" id="toc-r-3" class="nav-link" data-scroll-target="#r-3">R</a></li>
   <li><a href="#r-shorter" id="toc-r-shorter" class="nav-link" data-scroll-target="#r-shorter">R (shorter)</a></li>
   </ul></li>
   <li><a href="#problem-7-1" id="toc-problem-7-1" class="nav-link" data-scroll-target="#problem-7-1">Problem 7</a>
   <ul class="collapse">
-  <li><a href="#julia-6" id="toc-julia-6" class="nav-link" data-scroll-target="#julia-6">Julia</a></li>
+  <li><a href="#julia-7" id="toc-julia-7" class="nav-link" data-scroll-target="#julia-7">Julia</a></li>
   </ul></li>
   <li><a href="#problem-8-1" id="toc-problem-8-1" class="nav-link" data-scroll-target="#problem-8-1">Problem 8</a>
   <ul class="collapse">
-  <li><a href="#julia-7" id="toc-julia-7" class="nav-link" data-scroll-target="#julia-7">Julia</a></li>
+  <li><a href="#julia-8" id="toc-julia-8" class="nav-link" data-scroll-target="#julia-8">Julia</a></li>
   </ul></li>
   <li><a href="#problem-9-1" id="toc-problem-9-1" class="nav-link" data-scroll-target="#problem-9-1">Problem 9</a>
   <ul class="collapse">
-  <li><a href="#julia-8" id="toc-julia-8" class="nav-link" data-scroll-target="#julia-8">Julia</a></li>
+  <li><a href="#julia-9" id="toc-julia-9" class="nav-link" data-scroll-target="#julia-9">Julia</a></li>
   <li><a href="#julia-using-jump" id="toc-julia-using-jump" class="nav-link" data-scroll-target="#julia-using-jump">Julia (using JuMP)</a></li>
   </ul></li>
   <li><a href="#problem-10-1" id="toc-problem-10-1" class="nav-link" data-scroll-target="#problem-10-1">Problem 10</a>
   <ul class="collapse">
-  <li><a href="#julia-9" id="toc-julia-9" class="nav-link" data-scroll-target="#julia-9">Julia</a></li>
+  <li><a href="#julia-10" id="toc-julia-10" class="nav-link" data-scroll-target="#julia-10">Julia</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -252,6 +255,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="prelude" class="level2">
 <h2 class="anchored" data-anchor-id="prelude">Prelude</h2>
+<p>Functions shared among some exercises.</p>
 <section id="julia" class="level3">
 <h3 class="anchored" data-anchor-id="julia">Julia</h3>
 <div class="cell">
@@ -311,14 +315,14 @@ Find the sum of all the multiples of <span class="math inline">\(3\)</span> or <
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@benchmark</span> <span class="fu">p1</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>BenchmarkTools.Trial: 10000 samples with 6 evaluations.
- Range (min … max):  5.016 μs … 225.126 μs  ┊ GC (min … max): 0.00% … 93.49%
- Time  (median):     5.494 μs               ┊ GC (median):    0.00%
- Time  (mean ± σ):   6.026 μs ±   5.296 μs  ┊ GC (mean ± σ):  2.36% ±  2.66%
+<pre><code>BenchmarkTools.Trial: 10000 samples with 5 evaluations.
+ Range (min … max):  6.040 μs … 678.121 μs  ┊ GC (min … max): 0.00% … 96.88%
+ Time  (median):     7.347 μs               ┊ GC (median):    0.00%
+ Time  (mean ± σ):   8.224 μs ±  12.687 μs  ┊ GC (mean ± σ):  4.00% ±  2.69%
 
-   ▁▅▄▆▅█▆▆▄▂▁▁      ▁▁▂▁▃▂▂▁         ▁▁▁▁▁ ▁                 ▂
-  ██████████████▇▅▇▇██████████▇▇▇▇▇▇██████████████▇▇▆▇▇▇▆▆▅▆▇ █
-  5.02 μs      Histogram: log(frequency) by time      9.16 μs &lt;
+  ▂▅█▄                                                         
+  ████▅▃▂▄▅▆▇▇▅▄▃▃▃▂▂▂▂▂▂▂▂▂▂▂▂▂▁▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ ▂
+  6.04 μs         Histogram: frequency by time        16.9 μs &lt;
 
  Memory estimate: 7.61 KiB, allocs estimate: 6.</code></pre>
 </div>
@@ -362,7 +366,7 @@ Find the sum of all the multiples of <span class="math inline">\(3\)</span> or <
 <pre><code># A tibble: 1 × 6
   expression      min   median `itr/sec` mem_alloc `gc/sec`
   &lt;bch:expr&gt; &lt;bch:tm&gt; &lt;bch:tm&gt;     &lt;dbl&gt; &lt;bch:byt&gt;    &lt;dbl&gt;
-1 p1()          482µs    525µs     1890.     269KB     27.3</code></pre>
+1 p1()          548µs    648µs     1403.     269KB     20.9</code></pre>
 </div>
 </div>
 </section>
@@ -391,7 +395,7 @@ Find the sum of all the multiples of <span class="math inline">\(3\)</span> or <
 <pre><code># A tibble: 1 × 6
   expression      min   median `itr/sec` mem_alloc `gc/sec`
   &lt;bch:expr&gt; &lt;bch:tm&gt; &lt;bch:tm&gt;     &lt;dbl&gt; &lt;bch:byt&gt;    &lt;dbl&gt;
-1 p1()          262µs    288µs     3458.        0B     45.2</code></pre>
+1 p1()          289µs    343µs     2673.        0B     33.5</code></pre>
 </div>
 </div>
 </section>
@@ -466,14 +470,14 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools;</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@benchmark</span> <span class="fu">p2</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>BenchmarkTools.Trial: 10000 samples with 190 evaluations.
- Range (min … max):  516.042 ns …  16.744 μs  ┊ GC (min … max): 0.00% … 95.55%
- Time  (median):     574.489 ns               ┊ GC (median):    0.00%
- Time  (mean ± σ):   633.959 ns ± 824.292 ns  ┊ GC (mean ± σ):  8.48% ±  6.22%
+<pre><code>BenchmarkTools.Trial: 10000 samples with 176 evaluations.
+ Range (min … max):  605.938 ns … 31.875 μs  ┊ GC (min … max): 0.00% … 97.05%
+ Time  (median):     731.423 ns              ┊ GC (median):    0.00%
+ Time  (mean ± σ):   885.255 ns ±  1.423 μs  ┊ GC (mean ± σ):  9.46% ±  5.95%
 
-   ▁▂▃▃▆▅▅█▆▇█▆▅▅▂▂▁▁▁▂▂▂▂▁                                     ▂
-  ██████████████████████████▇▇▅▇▆▆▅▆▇▁▆▅▅▆▅▅▇▇▆▅▆██▇▇▇▇▆▃▆▆▆▁▅▅ █
-  516 ns        Histogram: log(frequency) by time        855 ns &lt;
+  ▂▂▄▅▇█▇▆▅▅▄▄▃▃▃▂▂▁▁▁▁▁▁▁▁▁ ▁                                 ▂
+  ███████████████████████████████████▇██▇▇▇▆▆▅▅▅▅▅▅▄▅▅▅▅▅▄▆▄▄▃ █
+  606 ns        Histogram: log(frequency) by time       1.8 μs &lt;
 
  Memory estimate: 1.02 KiB, allocs estimate: 7.</code></pre>
 </div>
@@ -502,14 +506,14 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools;</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@benchmark</span> <span class="fu">p2</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>BenchmarkTools.Trial: 10000 samples with 996 evaluations.
- Range (min … max):  20.301 ns … 58.622 ns  ┊ GC (min … max): 0.00% … 0.00%
- Time  (median):     20.890 ns              ┊ GC (median):    0.00%
- Time  (mean ± σ):   21.815 ns ±  2.220 ns  ┊ GC (mean ± σ):  0.00% ± 0.00%
+<pre><code>BenchmarkTools.Trial: 10000 samples with 995 evaluations.
+ Range (min … max):  23.205 ns … 61.933 ns  ┊ GC (min … max): 0.00% … 0.00%
+ Time  (median):     25.423 ns              ┊ GC (median):    0.00%
+ Time  (mean ± σ):   26.584 ns ±  3.627 ns  ┊ GC (mean ± σ):  0.00% ± 0.00%
 
-  ▆  █▁ ▇  ▃▄  ▂   ▂   ▅   ▁▃   ▂    ▁    ▁     ▁     ▂       ▂
-  █▆▅██▇█▅▄██▄▆█▄▃▆█▃▄▅█▄▄▄██▄▁▁█▅▄▃▁█▃▃▃▁█▁▃▁▁▁█▁▁▃▁▁█▃▁▁▁▁█ █
-  20.3 ns      Histogram: log(frequency) by time      30.1 ns &lt;
+  ▁ ▇▂▆▃█▆▄▇▃▂▄  ▁▁ ▂  ▁  ▁   ▂   ▂▂▁▁ ▂                      ▂
+  █▂███████████▇███▇█▇▆█▆▇█▇▆▇██████████▇▇▆▇▆▆▆▅▅▆▅▅▅▄▄▄▄▄▄▅▅ █
+  23.2 ns      Histogram: log(frequency) by time      42.3 ns &lt;
 
  Memory estimate: 0 bytes, allocs estimate: 0.</code></pre>
 </div>
@@ -552,7 +556,7 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 <pre><code># A tibble: 1 × 6
   expression      min   median `itr/sec` mem_alloc `gc/sec`
   &lt;bch:expr&gt; &lt;bch:tm&gt; &lt;bch:tm&gt;     &lt;dbl&gt; &lt;bch:byt&gt;    &lt;dbl&gt;
-1 p2()         20.4µs   23.2µs    41700.    2.37KB     16.7</code></pre>
+1 p2()         23.6µs   28.3µs    31834.    2.37KB     15.9</code></pre>
 </div>
 </div>
 </section>
@@ -591,7 +595,7 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 <pre><code># A tibble: 1 × 6
   expression      min   median `itr/sec` mem_alloc `gc/sec`
   &lt;bch:expr&gt; &lt;bch:tm&gt; &lt;bch:tm&gt;     &lt;dbl&gt; &lt;bch:byt&gt;    &lt;dbl&gt;
-1 p2()         6.32µs   7.18µs   133267.        0B     26.7</code></pre>
+1 p2()         7.29µs   8.78µs   101338.        0B     10.1</code></pre>
 </div>
 </div>
 </section>
@@ -665,14 +669,14 @@ What is the largest prime factor of the number <span class="math inline">\(60085
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools;</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@benchmark</span> <span class="fu">p3</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>BenchmarkTools.Trial: 1187 samples with 1 evaluation.
- Range (min … max):  3.804 ms …   6.091 ms  ┊ GC (min … max): 0.00% … 6.67%
- Time  (median):     4.160 ms               ┊ GC (median):    0.00%
- Time  (mean ± σ):   4.212 ms ± 169.959 μs  ┊ GC (mean ± σ):  1.22% ± 2.77%
+<pre><code>BenchmarkTools.Trial: 887 samples with 1 evaluation.
+ Range (min … max):  4.330 ms …  10.458 ms  ┊ GC (min … max): 0.00% … 8.41%
+ Time  (median):     5.289 ms               ┊ GC (median):    0.00%
+ Time  (mean ± σ):   5.622 ms ± 939.890 μs  ┊ GC (mean ± σ):  1.44% ± 3.29%
 
-                     ▇▅▆▄█▆▃▁▆▃                                
-  ▂▁▂▁▁▁▁▂▁▁▂▂▂▂▂▂▃▂▄██████████▆▄▃▂▃▂▁▁▂▁▁▂▁▂▂▂▃▃▄▄▅▄▅▃▃▃▂▃▁▂ ▃
-  3.8 ms          Histogram: frequency by time        4.66 ms &lt;
+       ▄▇▆██▇▆▆▄▄▄▃▄▃▃▁▂▂▁ ▂▁▁                                ▁
+  ▅▁▅▅▆███████████████████████▇▆▆▆▄▇▅▇▅▅▇▁▅▆▆▇▄▅▁▅▄▁▁▆▅▅▆▄▁▁▆ █
+  4.33 ms      Histogram: log(frequency) by time       9.5 ms &lt;
 
  Memory estimate: 6.48 MiB, allocs estimate: 8.</code></pre>
 </div>
@@ -768,38 +772,42 @@ Find the largest palindrome made from the product of two <span class="math inlin
 <span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a><span class="fu">is_palindrome</span>(n<span class="op">::</span><span class="dt">Integer</span>) <span class="op">=</span> <span class="fu">is_palindrome</span>(<span class="fu">string</span>(n));</span>
 <span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">p4</span>()</span>
-<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> x <span class="op">∈</span> <span class="fu">reverse</span>(<span class="fl">100</span><span class="op">:</span><span class="fl">999</span>)</span>
-<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> y <span class="op">∈</span> <span class="fu">reverse</span>(<span class="fl">100</span><span class="op">:</span><span class="fl">999</span>)</span>
-<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a>            p <span class="op">=</span> x <span class="op">*</span> y</span>
-<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="fu">is_palindrome</span>(p) </span>
-<span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span>(x, y, p)</span>
-<span id="cb44-19"><a href="#cb44-19" aria-hidden="true" tabindex="-1"></a>            <span class="cf">end</span></span>
-<span id="cb44-20"><a href="#cb44-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">end</span></span>
-<span id="cb44-21"><a href="#cb44-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
-<span id="cb44-22"><a href="#cb44-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-23"><a href="#cb44-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># if no palindrome was found:</span></span>
-<span id="cb44-24"><a href="#cb44-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (<span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>)</span>
-<span id="cb44-25"><a href="#cb44-25" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span>
+<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a>  a, b, largest_palindrome <span class="op">=</span> <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span></span>
+<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> x <span class="op">∈</span> <span class="fu">reverse</span>(<span class="fl">100</span><span class="op">:</span><span class="fl">999</span>)</span>
+<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a>      <span class="cf">for</span> y <span class="op">∈</span> <span class="fu">reverse</span>(<span class="fl">100</span><span class="op">:</span><span class="fl">999</span>)</span>
+<span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a>          x <span class="op">&lt;</span> y <span class="op">&amp;&amp;</span> <span class="cf">continue</span></span>
+<span id="cb44-19"><a href="#cb44-19" aria-hidden="true" tabindex="-1"></a>          p <span class="op">=</span> x <span class="op">*</span> y</span>
+<span id="cb44-20"><a href="#cb44-20" aria-hidden="true" tabindex="-1"></a>          p <span class="op">&lt;</span> largest_palindrome <span class="op">&amp;&amp;</span> <span class="cf">break</span> <span class="co"># we can break the inner loop, because the next product is going to be even lesser</span></span>
+<span id="cb44-21"><a href="#cb44-21" aria-hidden="true" tabindex="-1"></a>          <span class="cf">if</span> <span class="fu">is_palindrome</span>(p)</span>
+<span id="cb44-22"><a href="#cb44-22" aria-hidden="true" tabindex="-1"></a>            a, b, largest_palindrome <span class="op">=</span> x, y, p </span>
+<span id="cb44-23"><a href="#cb44-23" aria-hidden="true" tabindex="-1"></a>          <span class="cf">end</span></span>
+<span id="cb44-24"><a href="#cb44-24" aria-hidden="true" tabindex="-1"></a>      <span class="cf">end</span></span>
+<span id="cb44-25"><a href="#cb44-25" aria-hidden="true" tabindex="-1"></a>  <span class="cf">end</span></span>
 <span id="cb44-26"><a href="#cb44-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-27"><a href="#cb44-27" aria-hidden="true" tabindex="-1"></a><span class="fu">p4</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb44-27"><a href="#cb44-27" aria-hidden="true" tabindex="-1"></a>  <span class="co"># if no palindrome was found:</span></span>
+<span id="cb44-28"><a href="#cb44-28" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> (a, b, a<span class="op">*</span>b)</span>
+<span id="cb44-29"><a href="#cb44-29" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span>
+<span id="cb44-30"><a href="#cb44-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-31"><a href="#cb44-31" aria-hidden="true" tabindex="-1"></a><span class="fu">p4</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>(995, 583, 580085)</code></pre>
+<pre><code>(993, 913, 906609)</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools;</span></span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@benchmark</span> <span class="fu">p4</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>BenchmarkTools.Trial: 10000 samples with 1 evaluation.
- Range (min … max):  252.408 μs …   3.145 ms  ┊ GC (min … max): 0.00% … 90.03%
- Time  (median):     287.522 μs               ┊ GC (median):    0.00%
- Time  (mean ± σ):   309.734 μs ± 232.921 μs  ┊ GC (mean ± σ):  6.60% ±  7.87%
+<pre><code>BenchmarkTools.Trial: 5716 samples with 1 evaluation.
+ Range (min … max):  702.190 μs …   8.075 ms  ┊ GC (min … max): 0.00% … 82.86%
+ Time  (median):     799.785 μs               ┊ GC (median):    0.00%
+ Time  (mean ± σ):   867.108 μs ± 383.069 μs  ┊ GC (mean ± σ):  4.37% ±  8.45%
 
-                ▁▃█▅  ▁▃                                         
-  ▂▂▂▃▃▃▂▃▃▂▃▃▃▃████▇▅██▅▄▄▄▃▃▂▂▂▂▂▂▂▂▂▂▂▂▁▁▂▂▂▂▁▂▂▂▂▂▁▂▂▂▂▂▂▂▂ ▃
-  252 μs           Histogram: frequency by time          376 μs &lt;
+  ▃▆█▆▄▃▂▂                                                      ▁
+  █████████████▇▇▇▇▇██▅▅▄▄▄▃▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▆ █
+  702 μs        Histogram: log(frequency) by time       2.97 ms &lt;
 
- Memory estimate: 345.21 KiB, allocs estimate: 8034.</code></pre>
+ Memory estimate: 526.28 KiB, allocs estimate: 12248.</code></pre>
 </div>
 </div>
 </section>
@@ -824,6 +832,67 @@ What is the smallest positive number that is <dfn class="tooltip">evenly divisib
 </p>
 </div>
 </div>
+<section id="julia-5" class="level3">
+<h3 class="anchored" data-anchor-id="julia-5">Julia</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">prime_decomposition</span>(n<span class="op">::</span><span class="dt">Integer</span>)</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>    possible_primes <span class="op">=</span> <span class="fu">sieve_of_eratosthenes</span>(n)</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>    temp_n <span class="op">=</span> n</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>    dec <span class="op">=</span> <span class="dt">Int32</span>[]</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> temp_n <span class="op">&gt;</span> <span class="fl">1</span></span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> p <span class="op">∈</span> possible_primes</span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>            q, r <span class="op">=</span> <span class="fu">divrem</span>(temp_n, p)            </span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="fu">iszero</span>(r)</span>
+<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a>                temp_n <span class="op">=</span> temp_n <span class="op">÷</span> p</span>
+<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a>                <span class="fu">push!</span>(dec, p)</span>
+<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a>                <span class="cf">break</span></span>
+<span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">end</span></span>
+<span id="cb48-14"><a href="#cb48-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">end</span></span>
+<span id="cb48-15"><a href="#cb48-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb48-16"><a href="#cb48-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> dec</span>
+<span id="cb48-17"><a href="#cb48-17" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span>
+<span id="cb48-18"><a href="#cb48-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-19"><a href="#cb48-19" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">p5</span>()</span>
+<span id="cb48-20"><a href="#cb48-20" aria-hidden="true" tabindex="-1"></a>    decomposition <span class="op">=</span> <span class="fu">map</span>(prime_decomposition, <span class="fl">2</span><span class="op">:</span><span class="fl">20</span>)</span>
+<span id="cb48-21"><a href="#cb48-21" aria-hidden="true" tabindex="-1"></a>    distinct_primes <span class="op">=</span> <span class="fu">vcat</span>(decomposition<span class="op">...</span>) <span class="op">|&gt;</span> unique</span>
+<span id="cb48-22"><a href="#cb48-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-23"><a href="#cb48-23" aria-hidden="true" tabindex="-1"></a>    count_matrix <span class="op">=</span> </span>
+<span id="cb48-24"><a href="#cb48-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">map</span>(distinct_primes) <span class="cf">do</span> p</span>
+<span id="cb48-25"><a href="#cb48-25" aria-hidden="true" tabindex="-1"></a>        <span class="fu">map</span>(decomposition) <span class="cf">do</span> d</span>
+<span id="cb48-26"><a href="#cb48-26" aria-hidden="true" tabindex="-1"></a>            <span class="fu">count</span>(<span class="op">==</span>(p), d)</span>
+<span id="cb48-27"><a href="#cb48-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">end</span></span>
+<span id="cb48-28"><a href="#cb48-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span> <span class="op">|&gt;</span> stack</span>
+<span id="cb48-29"><a href="#cb48-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-30"><a href="#cb48-30" aria-hidden="true" tabindex="-1"></a>    primes_powers <span class="op">=</span> <span class="fu">map</span>(maximum, <span class="fu">eachcol</span>(count_matrix))</span>
+<span id="cb48-31"><a href="#cb48-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-32"><a href="#cb48-32" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> (distinct_primes <span class="op">.^</span> primes_powers) <span class="op">|&gt;</span> prod</span>
+<span id="cb48-33"><a href="#cb48-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-34"><a href="#cb48-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> n</span>
+<span id="cb48-35"><a href="#cb48-35" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span>
+<span id="cb48-36"><a href="#cb48-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-37"><a href="#cb48-37" aria-hidden="true" tabindex="-1"></a><span class="fu">p5</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>232792560</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools;</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@benchmark</span> <span class="fu">p5</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>BenchmarkTools.Trial: 10000 samples with 1 evaluation.
+ Range (min … max):  11.932 μs …  3.506 ms  ┊ GC (min … max): 0.00% … 98.60%
+ Time  (median):     14.041 μs              ┊ GC (median):    0.00%
+ Time  (mean ± σ):   15.946 μs ± 35.124 μs  ┊ GC (mean ± σ):  2.17% ±  0.99%
+
+    ▄▄▆█▄                                                      
+  ▃██████▆▆▅▄▄▄▃▄▃▃▃▃▃▂▃▃▂▂▂▂▂▂▂▂▂▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ ▂
+  11.9 μs         Histogram: frequency by time        31.3 μs &lt;
+
+ Memory estimate: 12.67 KiB, allocs estimate: 143.</code></pre>
+</div>
+</div>
+</section>
 </section>
 <section id="problem-6-1" class="level2">
 <h2 class="anchored" data-anchor-id="problem-6-1">Problem 6</h2>
@@ -851,29 +920,29 @@ Find the difference between the sum of the squares of the first one hundred natu
 <p></p>
 </div>
 </div>
-<section id="julia-5" class="level3">
-<h3 class="anchored" data-anchor-id="julia-5">Julia</h3>
+<section id="julia-6" class="level3">
+<h3 class="anchored" data-anchor-id="julia-6">Julia</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">p6</span>()</span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>(<span class="fl">1</span><span class="op">:</span><span class="fl">100</span>)<span class="op">^</span><span class="fl">2</span> <span class="op">-</span> <span class="fu">sum</span>((<span class="fl">1</span><span class="op">:</span><span class="fl">100</span>)<span class="op">.^</span><span class="fl">2</span>)</span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="fu">p6</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">p6</span>()</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>(<span class="fl">1</span><span class="op">:</span><span class="fl">100</span>)<span class="op">^</span><span class="fl">2</span> <span class="op">-</span> <span class="fu">sum</span>((<span class="fl">1</span><span class="op">:</span><span class="fl">100</span>)<span class="op">.^</span><span class="fl">2</span>)</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="fu">p6</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>25164150</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools;</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@benchmark</span> <span class="fu">p6</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools;</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@benchmark</span> <span class="fu">p6</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>BenchmarkTools.Trial: 10000 samples with 952 evaluations.
- Range (min … max):   87.890 ns …  1.018 μs  ┊ GC (min … max): 0.00% … 64.28%
- Time  (median):     105.294 ns              ┊ GC (median):    0.00%
- Time  (mean ± σ):   121.561 ns ± 77.070 ns  ┊ GC (mean ± σ):  6.98% ±  9.56%
+<pre><code>BenchmarkTools.Trial: 10000 samples with 937 evaluations.
+ Range (min … max):  104.475 ns …   2.010 μs  ┊ GC (min … max): 0.00% … 76.54%
+ Time  (median):     141.991 ns               ┊ GC (median):    0.00%
+ Time  (mean ± σ):   199.576 ns ± 169.768 ns  ┊ GC (mean ± σ):  8.42% ± 10.07%
 
-  ▂█▆▆▃▁▁                                                      ▁
-  ████████▇▆▆▇▅▅▅▆▇▅▄▁▁▁▁▁▁▃▆▅▄▆▅▅▅▅▅▃▁▁▁▁▁▁▁▁▁▁▁▃▁▃▄▆▅▆▆▅▆▆▆▆ █
-  87.9 ns       Histogram: log(frequency) by time       642 ns &lt;
+  █▆                                                             
+  ██▆▅▅▄▄▃▃▃▄▄▄▃▃▃▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▁▂▂▁▂▁▁▂▁▁▁▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂ ▃
+  104 ns           Histogram: frequency by time         1.05 μs &lt;
 
  Memory estimate: 896 bytes, allocs estimate: 1.</code></pre>
 </div>
@@ -882,44 +951,22 @@ Find the difference between the sum of the squares of the first one hundred natu
 <section id="r-3" class="level3">
 <h3 class="anchored" data-anchor-id="r-3">R</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>p6 <span class="ot">=</span> <span class="cf">function</span>(){</span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  S1 <span class="ot">=</span><span class="dv">0</span></span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>  S2 <span class="ot">=</span> <span class="dv">0</span></span>
-<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>){</span>
-<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>    S1 <span class="ot">=</span> S1<span class="sc">+</span>i<span class="sc">**</span><span class="dv">2</span></span>
-<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a>    S2 <span class="ot">=</span> S2<span class="sc">+</span>i</span>
-<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a>  S2 <span class="ot">=</span> S2<span class="sc">**</span><span class="dv">2</span></span>
-<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a>  S1</span>
-<span id="cb52-12"><a href="#cb52-12" aria-hidden="true" tabindex="-1"></a>  S2</span>
-<span id="cb52-13"><a href="#cb52-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(S2<span class="sc">-</span>S1)</span>
-<span id="cb52-14"><a href="#cb52-14" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb52-15"><a href="#cb52-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-16"><a href="#cb52-16" aria-hidden="true" tabindex="-1"></a><span class="fu">p6</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 25164150</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>bench<span class="sc">::</span><span class="fu">mark</span>(<span class="fu">p6</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 6
-  expression      min   median `itr/sec` mem_alloc `gc/sec`
-  &lt;bch:expr&gt; &lt;bch:tm&gt; &lt;bch:tm&gt;     &lt;dbl&gt; &lt;bch:byt&gt;    &lt;dbl&gt;
-1 p6()         4.53µs   5.19µs   179415.        0B     17.9</code></pre>
-</div>
-</div>
-</section>
-<section id="r-shorter" class="level3">
-<h3 class="anchored" data-anchor-id="r-shorter">R (shorter)</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>p6 <span class="ot">=</span> <span class="cf">function</span>() {</span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="fu">sum</span>((<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>)<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a><span class="fu">p6</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>p6 <span class="ot">=</span> <span class="cf">function</span>(){</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  S1 <span class="ot">=</span><span class="dv">0</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>  S2 <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>){</span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>    S1 <span class="ot">=</span> S1<span class="sc">+</span>i<span class="sc">**</span><span class="dv">2</span></span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a>    S2 <span class="ot">=</span> S2<span class="sc">+</span>i</span>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a>  S2 <span class="ot">=</span> S2<span class="sc">**</span><span class="dv">2</span></span>
+<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb56-11"><a href="#cb56-11" aria-hidden="true" tabindex="-1"></a>  S1</span>
+<span id="cb56-12"><a href="#cb56-12" aria-hidden="true" tabindex="-1"></a>  S2</span>
+<span id="cb56-13"><a href="#cb56-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(S2<span class="sc">-</span>S1)</span>
+<span id="cb56-14"><a href="#cb56-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb56-15"><a href="#cb56-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-16"><a href="#cb56-16" aria-hidden="true" tabindex="-1"></a><span class="fu">p6</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 25164150</code></pre>
 </div>
@@ -930,7 +977,29 @@ Find the difference between the sum of the squares of the first one hundred natu
 <pre><code># A tibble: 1 × 6
   expression      min   median `itr/sec` mem_alloc `gc/sec`
   &lt;bch:expr&gt; &lt;bch:tm&gt; &lt;bch:tm&gt;     &lt;dbl&gt; &lt;bch:byt&gt;    &lt;dbl&gt;
-1 p6()         1.14µs    1.4µs   609672.    32.3KB        0</code></pre>
+1 p6()         5.09µs   5.95µs   157975.        0B        0</code></pre>
+</div>
+</div>
+</section>
+<section id="r-shorter" class="level3">
+<h3 class="anchored" data-anchor-id="r-shorter">R (shorter)</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>p6 <span class="ot">=</span> <span class="cf">function</span>() {</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="fu">sum</span>((<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a><span class="fu">p6</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 25164150</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>bench<span class="sc">::</span><span class="fu">mark</span>(<span class="fu">p6</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 6
+  expression      min   median `itr/sec` mem_alloc `gc/sec`
+  &lt;bch:expr&gt; &lt;bch:tm&gt; &lt;bch:tm&gt;     &lt;dbl&gt; &lt;bch:byt&gt;    &lt;dbl&gt;
+1 p6()         1.34µs   1.69µs   449163.    32.3KB        0</code></pre>
 </div>
 </div>
 </section>
@@ -955,61 +1024,61 @@ What is the <span class="math inline">\(10\,001\)</span>st prime number?
 </p>
 </div>
 </div>
-<section id="julia-6" class="level3">
-<h3 class="anchored" data-anchor-id="julia-6">Julia</h3>
+<section id="julia-7" class="level3">
+<h3 class="anchored" data-anchor-id="julia-7">Julia</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is_divisible_by</span>(n<span class="op">::</span><span class="dt">Integer</span>, q<span class="op">::</span><span class="dt">Integer</span>) <span class="op">=</span> n <span class="op">%</span> q <span class="op">==</span> <span class="fl">0</span>;</span>
-<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">find_next_prime</span>(primes)</span>
-<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> primes[<span class="kw">end</span>]</span>
-<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="cn">true</span>        </span>
-<span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a>        n <span class="op">+=</span> <span class="fl">2</span></span>
-<span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb60-8"><a href="#cb60-8" aria-hidden="true" tabindex="-1"></a>        not_prime <span class="op">=</span> <span class="cn">false</span></span>
-<span id="cb60-9"><a href="#cb60-9" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb60-10"><a href="#cb60-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> q <span class="op">∈</span> primes</span>
-<span id="cb60-11"><a href="#cb60-11" aria-hidden="true" tabindex="-1"></a>            not_prime <span class="op">=</span> <span class="fu">is_divisible_by</span>(n, q)</span>
-<span id="cb60-12"><a href="#cb60-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> not_prime</span>
-<span id="cb60-13"><a href="#cb60-13" aria-hidden="true" tabindex="-1"></a>                <span class="cf">break</span>                </span>
-<span id="cb60-14"><a href="#cb60-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">end</span>            </span>
-<span id="cb60-15"><a href="#cb60-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">end</span></span>
-<span id="cb60-16"><a href="#cb60-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb60-17"><a href="#cb60-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> not_prime </span>
-<span id="cb60-18"><a href="#cb60-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span> </span>
-<span id="cb60-19"><a href="#cb60-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">end</span></span>
-<span id="cb60-20"><a href="#cb60-20" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb60-21"><a href="#cb60-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span>(n)        </span>
-<span id="cb60-22"><a href="#cb60-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span>    </span>
-<span id="cb60-23"><a href="#cb60-23" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span>
-<span id="cb60-24"><a href="#cb60-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb60-25"><a href="#cb60-25" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">find_n_primes</span>(n<span class="op">::</span><span class="dt">Integer</span>)</span>
-<span id="cb60-26"><a href="#cb60-26" aria-hidden="true" tabindex="-1"></a>    primes <span class="op">=</span> [<span class="fl">2</span>, <span class="fl">3</span>]</span>
-<span id="cb60-27"><a href="#cb60-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="fu">length</span>(primes) <span class="op">&lt;</span> n</span>
-<span id="cb60-28"><a href="#cb60-28" aria-hidden="true" tabindex="-1"></a>        next_prime <span class="op">=</span> <span class="fu">find_next_prime</span>(primes)</span>
-<span id="cb60-29"><a href="#cb60-29" aria-hidden="true" tabindex="-1"></a>        <span class="fu">push!</span>(primes, next_prime)</span>
-<span id="cb60-30"><a href="#cb60-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
-<span id="cb60-31"><a href="#cb60-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb60-32"><a href="#cb60-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> primes</span>
-<span id="cb60-33"><a href="#cb60-33" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span>
-<span id="cb60-34"><a href="#cb60-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb60-35"><a href="#cb60-35" aria-hidden="true" tabindex="-1"></a><span class="fu">p7</span>() <span class="op">=</span> <span class="fu">find_n_primes</span>(<span class="fl">10_001</span>)[<span class="kw">end</span>];</span>
-<span id="cb60-36"><a href="#cb60-36" aria-hidden="true" tabindex="-1"></a><span class="fu">p7</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is_divisible_by</span>(n<span class="op">::</span><span class="dt">Integer</span>, q<span class="op">::</span><span class="dt">Integer</span>) <span class="op">=</span> n <span class="op">%</span> q <span class="op">==</span> <span class="fl">0</span>;</span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">find_next_prime</span>(primes)</span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> primes[<span class="kw">end</span>]</span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="cn">true</span>        </span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a>        n <span class="op">+=</span> <span class="fl">2</span></span>
+<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a>        not_prime <span class="op">=</span> <span class="cn">false</span></span>
+<span id="cb64-9"><a href="#cb64-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb64-10"><a href="#cb64-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> q <span class="op">∈</span> primes</span>
+<span id="cb64-11"><a href="#cb64-11" aria-hidden="true" tabindex="-1"></a>            not_prime <span class="op">=</span> <span class="fu">is_divisible_by</span>(n, q)</span>
+<span id="cb64-12"><a href="#cb64-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> not_prime</span>
+<span id="cb64-13"><a href="#cb64-13" aria-hidden="true" tabindex="-1"></a>                <span class="cf">break</span>                </span>
+<span id="cb64-14"><a href="#cb64-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">end</span>            </span>
+<span id="cb64-15"><a href="#cb64-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">end</span></span>
+<span id="cb64-16"><a href="#cb64-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-17"><a href="#cb64-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> not_prime </span>
+<span id="cb64-18"><a href="#cb64-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span> </span>
+<span id="cb64-19"><a href="#cb64-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">end</span></span>
+<span id="cb64-20"><a href="#cb64-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb64-21"><a href="#cb64-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span>(n)        </span>
+<span id="cb64-22"><a href="#cb64-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span>    </span>
+<span id="cb64-23"><a href="#cb64-23" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span>
+<span id="cb64-24"><a href="#cb64-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-25"><a href="#cb64-25" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">find_n_primes</span>(n<span class="op">::</span><span class="dt">Integer</span>)</span>
+<span id="cb64-26"><a href="#cb64-26" aria-hidden="true" tabindex="-1"></a>    primes <span class="op">=</span> [<span class="fl">2</span>, <span class="fl">3</span>]</span>
+<span id="cb64-27"><a href="#cb64-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="fu">length</span>(primes) <span class="op">&lt;</span> n</span>
+<span id="cb64-28"><a href="#cb64-28" aria-hidden="true" tabindex="-1"></a>        next_prime <span class="op">=</span> <span class="fu">find_next_prime</span>(primes)</span>
+<span id="cb64-29"><a href="#cb64-29" aria-hidden="true" tabindex="-1"></a>        <span class="fu">push!</span>(primes, next_prime)</span>
+<span id="cb64-30"><a href="#cb64-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb64-31"><a href="#cb64-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-32"><a href="#cb64-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> primes</span>
+<span id="cb64-33"><a href="#cb64-33" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span>
+<span id="cb64-34"><a href="#cb64-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-35"><a href="#cb64-35" aria-hidden="true" tabindex="-1"></a><span class="fu">p7</span>() <span class="op">=</span> <span class="fu">find_n_primes</span>(<span class="fl">10_001</span>)[<span class="kw">end</span>];</span>
+<span id="cb64-36"><a href="#cb64-36" aria-hidden="true" tabindex="-1"></a><span class="fu">p7</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>104743</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools;</span></span>
-<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@benchmark</span> <span class="fu">p7</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools;</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@benchmark</span> <span class="fu">p7</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>BenchmarkTools.Trial: 36 samples with 1 evaluation.
- Range (min … max):  140.501 ms … 144.701 ms  ┊ GC (min … max): 0.00% … 0.00%
- Time  (median):     142.590 ms               ┊ GC (median):    0.00%
- Time  (mean ± σ):   142.751 ms ±   1.146 ms  ┊ GC (mean ± σ):  0.00% ± 0.00%
+<pre><code>BenchmarkTools.Trial: 33 samples with 1 evaluation.
+ Range (min … max):  148.535 ms … 193.663 ms  ┊ GC (min … max): 0.00% … 0.00%
+ Time  (median):     152.722 ms               ┊ GC (median):    0.00%
+ Time  (mean ± σ):   155.040 ms ±   8.789 ms  ┊ GC (mean ± σ):  0.00% ± 0.00%
 
-           ▃  ▃       ▃     ▃  ▃         █    ▃      █           
-  ▇▁▁▇▁▁▁▁▁█▁▁█▁▇▁▁▁▇▁█▇▁▇▁▇█▁▇█▁▇▁▁▁▁▁▇▁█▇▁▁▁█▇▇▁▁▇▁█▁▁▇▁▇▁▁▇▇ ▁
-  141 ms           Histogram: frequency by time          145 ms &lt;
+       █                                                         
+  ▃▁▃▇▇█▇▅▃▃▁▁▁▃▁▁▁▁▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃ ▁
+  149 ms           Histogram: frequency by time          194 ms &lt;
 
  Memory estimate: 326.56 KiB, allocs estimate: 9.</code></pre>
 </div>
@@ -1039,65 +1108,65 @@ Find the thirteen adjacent digits in the <span class="math inline">\(1000\)</spa
 </p>
 </div>
 </div>
-<section id="julia-7" class="level3">
-<h3 class="anchored" data-anchor-id="julia-7">Julia</h3>
+<section id="julia-8" class="level3">
+<h3 class="anchored" data-anchor-id="julia-8">Julia</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">p8</span>()</span>
-<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>  big_string <span class="op">=</span> <span class="st">"73167176531330624919225119674426574742355349194934</span></span>
-<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>      <span class="fl">96983520312774506326239578318016984801869478851843</span></span>
-<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>      <span class="fl">85861560789112949495459501737958331952853208805511</span></span>
-<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>      <span class="fl">12540698747158523863050715693290963295227443043557</span></span>
-<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a>      <span class="fl">66896648950445244523161731856403098711121722383113</span></span>
-<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a>      <span class="fl">62229893423380308135336276614282806444486645238749</span></span>
-<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a>      <span class="fl">30358907296290491560440772390713810515859307960866</span></span>
-<span id="cb64-9"><a href="#cb64-9" aria-hidden="true" tabindex="-1"></a>      <span class="fl">70172427121883998797908792274921901699720888093776</span></span>
-<span id="cb64-10"><a href="#cb64-10" aria-hidden="true" tabindex="-1"></a>      <span class="fl">65727333001053367881220235421809751254540594752243</span></span>
-<span id="cb64-11"><a href="#cb64-11" aria-hidden="true" tabindex="-1"></a>      <span class="fl">52584907711670556013604839586446706324415722155397</span></span>
-<span id="cb64-12"><a href="#cb64-12" aria-hidden="true" tabindex="-1"></a>      <span class="fl">53697817977846174064955149290862569321978468622482</span></span>
-<span id="cb64-13"><a href="#cb64-13" aria-hidden="true" tabindex="-1"></a>      <span class="fl">83972241375657056057490261407972968652414535100474</span></span>
-<span id="cb64-14"><a href="#cb64-14" aria-hidden="true" tabindex="-1"></a>      <span class="fl">82166370484403199890008895243450658541227588666881</span></span>
-<span id="cb64-15"><a href="#cb64-15" aria-hidden="true" tabindex="-1"></a>      <span class="fl">16427171479924442928230863465674813919123162824586</span></span>
-<span id="cb64-16"><a href="#cb64-16" aria-hidden="true" tabindex="-1"></a>      <span class="fl">17866458359124566529476545682848912883142607690042</span></span>
-<span id="cb64-17"><a href="#cb64-17" aria-hidden="true" tabindex="-1"></a>      <span class="fl">24219022671055626321111109370544217506941658960408</span></span>
-<span id="cb64-18"><a href="#cb64-18" aria-hidden="true" tabindex="-1"></a>      <span class="fl">07198403850962455444362981230987879927244284909188</span></span>
-<span id="cb64-19"><a href="#cb64-19" aria-hidden="true" tabindex="-1"></a>      <span class="fl">84580156166097919133875499200524063689912560717606</span></span>
-<span id="cb64-20"><a href="#cb64-20" aria-hidden="true" tabindex="-1"></a>      <span class="fl">05886116467109405077541002256983155200055935729725</span></span>
-<span id="cb64-21"><a href="#cb64-21" aria-hidden="true" tabindex="-1"></a>      <span class="fl">71636269561882670428252483600823257530420752963450</span><span class="st">" |&gt; filter(isnumeric) # keep only numeric characters</span></span>
-<span id="cb64-22"><a href="#cb64-22" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb64-23"><a href="#cb64-23" aria-hidden="true" tabindex="-1"></a>  biggest_product <span class="op">=</span> <span class="fl">0</span></span>
-<span id="cb64-24"><a href="#cb64-24" aria-hidden="true" tabindex="-1"></a>  winner_string <span class="op">=</span> <span class="st">""</span></span>
-<span id="cb64-25"><a href="#cb64-25" aria-hidden="true" tabindex="-1"></a>  amount_of_digits <span class="op">=</span> <span class="fl">13</span></span>
-<span id="cb64-26"><a href="#cb64-26" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb64-27"><a href="#cb64-27" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> i <span class="kw">in</span> (amount_of_digits <span class="op">+</span> <span class="fl">1</span>)<span class="op">:</span><span class="fu">length</span>(big_string)</span>
-<span id="cb64-28"><a href="#cb64-28" aria-hidden="true" tabindex="-1"></a>    current_string <span class="op">=</span> <span class="fu">collect</span>(big_string[i<span class="op">-</span>amount_of_digits <span class="op">:</span> i])</span>
-<span id="cb64-29"><a href="#cb64-29" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb64-30"><a href="#cb64-30" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> <span class="fu">map</span>(x <span class="op">-&gt;</span> <span class="fu">parse</span>(<span class="dt">Int32</span>, x), current_string) <span class="op">|&gt;</span> prod</span>
-<span id="cb64-31"><a href="#cb64-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> p <span class="op">&gt;</span> biggest_product</span>
-<span id="cb64-32"><a href="#cb64-32" aria-hidden="true" tabindex="-1"></a>      biggest_product <span class="op">=</span> p</span>
-<span id="cb64-33"><a href="#cb64-33" aria-hidden="true" tabindex="-1"></a>      winner_string <span class="op">=</span> current_string</span>
-<span id="cb64-34"><a href="#cb64-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
-<span id="cb64-35"><a href="#cb64-35" aria-hidden="true" tabindex="-1"></a>  <span class="cf">end</span></span>
-<span id="cb64-36"><a href="#cb64-36" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb64-37"><a href="#cb64-37" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="fu">reduce</span>(<span class="op">*</span>, winner_string), biggest_product</span>
-<span id="cb64-38"><a href="#cb64-38" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span>
-<span id="cb64-39"><a href="#cb64-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-40"><a href="#cb64-40" aria-hidden="true" tabindex="-1"></a><span class="fu">p8</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">p8</span>()</span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>  big_string <span class="op">=</span> <span class="st">"73167176531330624919225119674426574742355349194934</span></span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>      <span class="fl">96983520312774506326239578318016984801869478851843</span></span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>      <span class="fl">85861560789112949495459501737958331952853208805511</span></span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>      <span class="fl">12540698747158523863050715693290963295227443043557</span></span>
+<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a>      <span class="fl">66896648950445244523161731856403098711121722383113</span></span>
+<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a>      <span class="fl">62229893423380308135336276614282806444486645238749</span></span>
+<span id="cb68-8"><a href="#cb68-8" aria-hidden="true" tabindex="-1"></a>      <span class="fl">30358907296290491560440772390713810515859307960866</span></span>
+<span id="cb68-9"><a href="#cb68-9" aria-hidden="true" tabindex="-1"></a>      <span class="fl">70172427121883998797908792274921901699720888093776</span></span>
+<span id="cb68-10"><a href="#cb68-10" aria-hidden="true" tabindex="-1"></a>      <span class="fl">65727333001053367881220235421809751254540594752243</span></span>
+<span id="cb68-11"><a href="#cb68-11" aria-hidden="true" tabindex="-1"></a>      <span class="fl">52584907711670556013604839586446706324415722155397</span></span>
+<span id="cb68-12"><a href="#cb68-12" aria-hidden="true" tabindex="-1"></a>      <span class="fl">53697817977846174064955149290862569321978468622482</span></span>
+<span id="cb68-13"><a href="#cb68-13" aria-hidden="true" tabindex="-1"></a>      <span class="fl">83972241375657056057490261407972968652414535100474</span></span>
+<span id="cb68-14"><a href="#cb68-14" aria-hidden="true" tabindex="-1"></a>      <span class="fl">82166370484403199890008895243450658541227588666881</span></span>
+<span id="cb68-15"><a href="#cb68-15" aria-hidden="true" tabindex="-1"></a>      <span class="fl">16427171479924442928230863465674813919123162824586</span></span>
+<span id="cb68-16"><a href="#cb68-16" aria-hidden="true" tabindex="-1"></a>      <span class="fl">17866458359124566529476545682848912883142607690042</span></span>
+<span id="cb68-17"><a href="#cb68-17" aria-hidden="true" tabindex="-1"></a>      <span class="fl">24219022671055626321111109370544217506941658960408</span></span>
+<span id="cb68-18"><a href="#cb68-18" aria-hidden="true" tabindex="-1"></a>      <span class="fl">07198403850962455444362981230987879927244284909188</span></span>
+<span id="cb68-19"><a href="#cb68-19" aria-hidden="true" tabindex="-1"></a>      <span class="fl">84580156166097919133875499200524063689912560717606</span></span>
+<span id="cb68-20"><a href="#cb68-20" aria-hidden="true" tabindex="-1"></a>      <span class="fl">05886116467109405077541002256983155200055935729725</span></span>
+<span id="cb68-21"><a href="#cb68-21" aria-hidden="true" tabindex="-1"></a>      <span class="fl">71636269561882670428252483600823257530420752963450</span><span class="st">" |&gt; filter(isnumeric) # keep only numeric characters</span></span>
+<span id="cb68-22"><a href="#cb68-22" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb68-23"><a href="#cb68-23" aria-hidden="true" tabindex="-1"></a>  biggest_product <span class="op">=</span> <span class="fl">0</span></span>
+<span id="cb68-24"><a href="#cb68-24" aria-hidden="true" tabindex="-1"></a>  winner_string <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb68-25"><a href="#cb68-25" aria-hidden="true" tabindex="-1"></a>  amount_of_digits <span class="op">=</span> <span class="fl">13</span></span>
+<span id="cb68-26"><a href="#cb68-26" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb68-27"><a href="#cb68-27" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> i <span class="kw">in</span> (amount_of_digits <span class="op">+</span> <span class="fl">1</span>)<span class="op">:</span><span class="fu">length</span>(big_string)</span>
+<span id="cb68-28"><a href="#cb68-28" aria-hidden="true" tabindex="-1"></a>    current_string <span class="op">=</span> <span class="fu">collect</span>(big_string[i<span class="op">-</span>amount_of_digits <span class="op">:</span> i])</span>
+<span id="cb68-29"><a href="#cb68-29" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb68-30"><a href="#cb68-30" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> <span class="fu">map</span>(x <span class="op">-&gt;</span> <span class="fu">parse</span>(<span class="dt">Int32</span>, x), current_string) <span class="op">|&gt;</span> prod</span>
+<span id="cb68-31"><a href="#cb68-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> p <span class="op">&gt;</span> biggest_product</span>
+<span id="cb68-32"><a href="#cb68-32" aria-hidden="true" tabindex="-1"></a>      biggest_product <span class="op">=</span> p</span>
+<span id="cb68-33"><a href="#cb68-33" aria-hidden="true" tabindex="-1"></a>      winner_string <span class="op">=</span> current_string</span>
+<span id="cb68-34"><a href="#cb68-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb68-35"><a href="#cb68-35" aria-hidden="true" tabindex="-1"></a>  <span class="cf">end</span></span>
+<span id="cb68-36"><a href="#cb68-36" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb68-37"><a href="#cb68-37" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="fu">reduce</span>(<span class="op">*</span>, winner_string), biggest_product</span>
+<span id="cb68-38"><a href="#cb68-38" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span>
+<span id="cb68-39"><a href="#cb68-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-40"><a href="#cb68-40" aria-hidden="true" tabindex="-1"></a><span class="fu">p8</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>("97536978179778", 70573265280)</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools;</span></span>
-<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@benchmark</span> <span class="fu">p8</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools;</span></span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@benchmark</span> <span class="fu">p8</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>BenchmarkTools.Trial: 10000 samples with 1 evaluation.
- Range (min … max):  344.111 μs …   1.958 ms  ┊ GC (min … max): 0.00% … 79.47%
- Time  (median):     378.443 μs               ┊ GC (median):    0.00%
- Time  (mean ± σ):   388.361 μs ± 104.481 μs  ┊ GC (mean ± σ):  1.96% ±  5.75%
+ Range (min … max):  332.812 μs …   4.294 ms  ┊ GC (min … max): 0.00% … 88.45%
+ Time  (median):     381.313 μs               ┊ GC (median):    0.00%
+ Time  (mean ± σ):   404.021 μs ± 176.453 μs  ┊ GC (mean ± σ):  2.98% ±  6.12%
 
-                     ▂█▇      ▆▄                                 
-  ▂▁▁▂▂▂▁▂▂▂▂▂▃▃▃▃▃▄▅████▅▄▄▅████▅▃▃▃▃▃▃▃▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂ ▃
-  344 μs           Histogram: frequency by time          432 μs &lt;
+            █▄                                                   
+  ▁▁▁▁▁▂▂▆█▅███▇▆▆▅▄▃▃▃▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ ▂
+  333 μs           Histogram: frequency by time          577 μs &lt;
 
  Memory estimate: 249.06 KiB, allocs estimate: 3000.</code></pre>
 </div>
@@ -1127,37 +1196,37 @@ There exists exactly one Pythagorean triplet for which <span class="math inline"
 </p>
 </div>
 </div>
-<section id="julia-8" class="level3">
-<h3 class="anchored" data-anchor-id="julia-8">Julia</h3>
+<section id="julia-9" class="level3">
+<h3 class="anchored" data-anchor-id="julia-9">Julia</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">p9</span>()</span>
-<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> a <span class="op">∈</span> <span class="fl">1</span><span class="op">:</span><span class="fl">999</span></span>
-<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> b <span class="op">∈</span> <span class="fl">1</span><span class="op">:</span><span class="fl">999</span>            </span>
-<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>            c <span class="op">=</span> <span class="fl">1000</span> <span class="op">-</span> a <span class="op">-</span> b</span>
-<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>            c <span class="op">&gt;=</span> <span class="fl">1</span> <span class="op">||</span> <span class="cf">continue</span></span>
-<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a>            a<span class="op">^</span><span class="fl">2</span> <span class="op">+</span> b<span class="op">^</span><span class="fl">2</span> <span class="op">==</span> c<span class="op">^</span><span class="fl">2</span> <span class="op">||</span> <span class="cf">continue</span>                        </span>
-<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> a, b, c</span>
-<span id="cb68-8"><a href="#cb68-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">end</span></span>
-<span id="cb68-9"><a href="#cb68-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
-<span id="cb68-10"><a href="#cb68-10" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span>
-<span id="cb68-11"><a href="#cb68-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb68-12"><a href="#cb68-12" aria-hidden="true" tabindex="-1"></a><span class="fu">p9</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">p9</span>()</span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> a <span class="op">∈</span> <span class="fl">1</span><span class="op">:</span><span class="fl">999</span></span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> b <span class="op">∈</span> <span class="fl">1</span><span class="op">:</span><span class="fl">999</span>            </span>
+<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>            c <span class="op">=</span> <span class="fl">1000</span> <span class="op">-</span> a <span class="op">-</span> b</span>
+<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a>            c <span class="op">&gt;=</span> <span class="fl">1</span> <span class="op">||</span> <span class="cf">continue</span></span>
+<span id="cb72-6"><a href="#cb72-6" aria-hidden="true" tabindex="-1"></a>            a<span class="op">^</span><span class="fl">2</span> <span class="op">+</span> b<span class="op">^</span><span class="fl">2</span> <span class="op">==</span> c<span class="op">^</span><span class="fl">2</span> <span class="op">||</span> <span class="cf">continue</span>                        </span>
+<span id="cb72-7"><a href="#cb72-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> a, b, c</span>
+<span id="cb72-8"><a href="#cb72-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">end</span></span>
+<span id="cb72-9"><a href="#cb72-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb72-10"><a href="#cb72-10" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span>
+<span id="cb72-11"><a href="#cb72-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-12"><a href="#cb72-12" aria-hidden="true" tabindex="-1"></a><span class="fu">p9</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(200, 375, 425)</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools;</span></span>
-<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@benchmark</span> <span class="fu">p9</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools;</span></span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@benchmark</span> <span class="fu">p9</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>BenchmarkTools.Trial: 10000 samples with 1 evaluation.
- Range (min … max):  205.912 μs … 299.591 μs  ┊ GC (min … max): 0.00% … 0.00%
- Time  (median):     230.622 μs               ┊ GC (median):    0.00%
- Time  (mean ± σ):   228.887 μs ±   6.676 μs  ┊ GC (mean ± σ):  0.00% ± 0.00%
+ Range (min … max):  123.904 μs … 284.551 μs  ┊ GC (min … max): 0.00% … 0.00%
+ Time  (median):     138.118 μs               ┊ GC (median):    0.00%
+ Time  (mean ± σ):   139.406 μs ±  12.284 μs  ┊ GC (mean ± σ):  0.00% ± 0.00%
 
-  ▁       ▁       ▃▃▃  ▁   █▇▆▃▂▁   ▃█▇▄▃▂▁▁ ▁▂▄▃▁▁     ▁▁      ▂
-  █▃▃▁▁▁▁▆█▁▃▄▁▃▁▁███████▅▅███████▆▇███████████████████▇████▇▇█ █
-  206 μs        Histogram: log(frequency) by time        249 μs &lt;
+    ▂ ▃ ▆▇▂█▃▃▄▁▁▂▁▁▁                                           ▂
+  ▇▃█▇█▆████████████████▇▇▇▇▅▆▇▅▅▅▇▆▅▅▄▆▅▅▁▆▇▄▄▅▃▅▁▃▁▄▄▆▄▅▄▆▄▄▆ █
+  124 μs        Histogram: log(frequency) by time        214 μs &lt;
 
  Memory estimate: 0 bytes, allocs estimate: 0.</code></pre>
 </div>
@@ -1166,37 +1235,37 @@ There exists exactly one Pythagorean triplet for which <span class="math inline"
 <section id="julia-using-jump" class="level3">
 <h3 class="anchored" data-anchor-id="julia-using-jump">Julia (using JuMP)</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">JuMP; </span><span class="im">using</span> <span class="bu">SCIP;</span></span>
-<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">p9</span>()</span>
-<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>  model <span class="op">=</span> <span class="fu">Model</span>(SCIP.Optimizer)</span>
-<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_silent</span>(model)</span>
-<span id="cb72-6"><a href="#cb72-6" aria-hidden="true" tabindex="-1"></a>  <span class="pp">@variable</span>(model, a <span class="op">&gt;=</span> <span class="fl">1</span>, <span class="dt">Int</span>)</span>
-<span id="cb72-7"><a href="#cb72-7" aria-hidden="true" tabindex="-1"></a>  <span class="pp">@variable</span>(model, b <span class="op">&gt;=</span> <span class="fl">1</span>, <span class="dt">Int</span>)</span>
-<span id="cb72-8"><a href="#cb72-8" aria-hidden="true" tabindex="-1"></a>  <span class="pp">@variable</span>(model, c <span class="op">&gt;=</span> <span class="fl">1</span>, <span class="dt">Int</span>)</span>
-<span id="cb72-9"><a href="#cb72-9" aria-hidden="true" tabindex="-1"></a>  <span class="pp">@objective</span>(model, Min, a)</span>
-<span id="cb72-10"><a href="#cb72-10" aria-hidden="true" tabindex="-1"></a>  <span class="pp">@constraint</span>(model, pitagorean, a<span class="op">^</span><span class="fl">2</span> <span class="op">+</span> b<span class="op">^</span><span class="fl">2</span> <span class="op">==</span> c<span class="op">^</span><span class="fl">2</span>)</span>
-<span id="cb72-11"><a href="#cb72-11" aria-hidden="true" tabindex="-1"></a>  <span class="pp">@constraint</span>(model, sum_1000, a <span class="op">+</span> b <span class="op">+</span> c <span class="op">==</span> <span class="fl">1000</span>)  </span>
-<span id="cb72-12"><a href="#cb72-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">optimize!</span>(model)    </span>
-<span id="cb72-13"><a href="#cb72-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="fu">value</span>(a), <span class="fu">value</span>(b), <span class="fu">value</span>(c)</span>
-<span id="cb72-14"><a href="#cb72-14" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span>
-<span id="cb72-15"><a href="#cb72-15" aria-hidden="true" tabindex="-1"></a><span class="fu">p9</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">JuMP; </span><span class="im">using</span> <span class="bu">SCIP;</span></span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">p9</span>()</span>
+<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a>  model <span class="op">=</span> <span class="fu">Model</span>(SCIP.Optimizer)</span>
+<span id="cb76-5"><a href="#cb76-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_silent</span>(model)</span>
+<span id="cb76-6"><a href="#cb76-6" aria-hidden="true" tabindex="-1"></a>  <span class="pp">@variable</span>(model, a <span class="op">&gt;=</span> <span class="fl">1</span>, <span class="dt">Int</span>)</span>
+<span id="cb76-7"><a href="#cb76-7" aria-hidden="true" tabindex="-1"></a>  <span class="pp">@variable</span>(model, b <span class="op">&gt;=</span> <span class="fl">1</span>, <span class="dt">Int</span>)</span>
+<span id="cb76-8"><a href="#cb76-8" aria-hidden="true" tabindex="-1"></a>  <span class="pp">@variable</span>(model, c <span class="op">&gt;=</span> <span class="fl">1</span>, <span class="dt">Int</span>)</span>
+<span id="cb76-9"><a href="#cb76-9" aria-hidden="true" tabindex="-1"></a>  <span class="pp">@objective</span>(model, Min, a)</span>
+<span id="cb76-10"><a href="#cb76-10" aria-hidden="true" tabindex="-1"></a>  <span class="pp">@constraint</span>(model, pitagorean, a<span class="op">^</span><span class="fl">2</span> <span class="op">+</span> b<span class="op">^</span><span class="fl">2</span> <span class="op">==</span> c<span class="op">^</span><span class="fl">2</span>)</span>
+<span id="cb76-11"><a href="#cb76-11" aria-hidden="true" tabindex="-1"></a>  <span class="pp">@constraint</span>(model, sum_1000, a <span class="op">+</span> b <span class="op">+</span> c <span class="op">==</span> <span class="fl">1000</span>)  </span>
+<span id="cb76-12"><a href="#cb76-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">optimize!</span>(model)    </span>
+<span id="cb76-13"><a href="#cb76-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="fu">value</span>(a), <span class="fu">value</span>(b), <span class="fu">value</span>(c)</span>
+<span id="cb76-14"><a href="#cb76-14" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span>
+<span id="cb76-15"><a href="#cb76-15" aria-hidden="true" tabindex="-1"></a><span class="fu">p9</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(200.0, 375.0, 425.0)</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools;</span></span>
-<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@benchmark</span> <span class="fu">p9</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools;</span></span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@benchmark</span> <span class="fu">p9</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>BenchmarkTools.Trial: 49 samples with 1 evaluation.
- Range (min … max):   98.516 ms … 128.971 ms  ┊ GC (min … max): 0.00% … 0.00%
- Time  (median):     100.859 ms               ┊ GC (median):    0.00%
- Time  (mean ± σ):   103.932 ms ±   6.531 ms  ┊ GC (mean ± σ):  0.00% ± 0.00%
+<pre><code>BenchmarkTools.Trial: 41 samples with 1 evaluation.
+ Range (min … max):  103.285 ms … 217.614 ms  ┊ GC (min … max): 0.00% … 0.00%
+ Time  (median):     117.181 ms               ┊ GC (median):    0.00%
+ Time  (mean ± σ):   123.525 ms ±  20.993 ms  ┊ GC (mean ± σ):  0.00% ± 0.00%
 
-    █▂▅                                                          
-  ▇▇███▅█▁▁▄▁▁▇▁▁▁▁▁▄▄▁▁▄▁▁▁▁▄▇▄▄▁▁▁▄▁▁▁▁▁▁▁▄▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄ ▁
-  98.5 ms          Histogram: frequency by time          129 ms &lt;
+   ▂█ ▅ ▅  ▂                                                     
+  ▅██▅███▅▅███▅█▁▁▅█▅▁▁▁▁▅▁▅▁▁▁▁▅▁▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅ ▁
+  103 ms           Histogram: frequency by time          218 ms &lt;
 
  Memory estimate: 116.59 KiB, allocs estimate: 5097.</code></pre>
 </div>
@@ -1223,29 +1292,29 @@ Find the sum of all the primes below two million.
 </p>
 </div>
 </div>
-<section id="julia-9" class="level3">
-<h3 class="anchored" data-anchor-id="julia-9">Julia</h3>
+<section id="julia-10" class="level3">
+<h3 class="anchored" data-anchor-id="julia-10">Julia</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">p10</span>()</span>
-<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sieve_of_eratosthenes</span>(<span class="fl">2_000_000</span>) <span class="op">|&gt;</span> sum</span>
-<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span>
-<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a><span class="fu">p10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">p10</span>()</span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sieve_of_eratosthenes</span>(<span class="fl">2_000_000</span>) <span class="op">|&gt;</span> sum</span>
+<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span>
+<span id="cb80-4"><a href="#cb80-4" aria-hidden="true" tabindex="-1"></a><span class="fu">p10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>142913828922</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools;</span></span>
-<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@benchmark</span> <span class="fu">p10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools;</span></span>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@benchmark</span> <span class="fu">p10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>BenchmarkTools.Trial: 486 samples with 1 evaluation.
- Range (min … max):   9.353 ms …  12.785 ms  ┊ GC (min … max): 0.00% … 0.00%
- Time  (median):     10.168 ms               ┊ GC (median):    0.00%
- Time  (mean ± σ):   10.302 ms ± 389.379 μs  ┊ GC (mean ± σ):  2.05% ± 2.79%
+<pre><code>BenchmarkTools.Trial: 427 samples with 1 evaluation.
+ Range (min … max):   9.943 ms … 22.344 ms  ┊ GC (min … max): 0.00% … 9.02%
+ Time  (median):     11.161 ms              ┊ GC (median):    0.00%
+ Time  (mean ± σ):   11.701 ms ±  1.768 ms  ┊ GC (mean ± σ):  2.68% ± 3.76%
 
-                    ▃▅█▅▅▃▁ ▂▇                ▂ ▄               
-  ▂▁▁▂▁▁▁▂▁▁▁▁▂▁▁▁▁████████████▅▃▃▁▂▁▁▂▁▃▄▆▇▅▆████▆▄▃▂▃▃▂▂▂▁▁▂ ▃
-  9.35 ms         Histogram: frequency by time         11.2 ms &lt;
+   █▂▂▁▅▇▁                                                     
+  ▄████████▇█▆▆▄▆▅▄▄▄▃▄▃▄▃▃▃▃▃▁▃▁▂▁▃▁▂▂▂▂▁▁▁▁▂▁▁▁▁▁▁▁▁▁▂▁▁▂▁▂ ▃
+  9.94 ms         Histogram: frequency by time        20.5 ms &lt;
 
  Memory estimate: 16.63 MiB, allocs estimate: 8.</code></pre>
 </div>
