@@ -2,6 +2,8 @@
 
 ## Prelude
 
+Functions shared among some exercises.
+
 ### Julia
 ```{julia}
 # define a function that give prime numbers up to n
@@ -387,17 +389,21 @@ end;
 is_palindrome(n::Integer) = is_palindrome(string(n));
 
 function p4()
-    for x ∈ reverse(100:999)
-        for y ∈ reverse(100:999)
-            p = x * y
-            if is_palindrome(p) 
-                return(x, y, p)
-            end
-        end
-    end
+  a, b, largest_palindrome = 0, 0, 0
+  
+  for x ∈ reverse(100:999)
+      for y ∈ reverse(100:999)
+          x < y && continue
+          p = x * y
+          p < largest_palindrome && break # we can break the inner loop, because the next product is going to be even lesser
+          if is_palindrome(p)
+            a, b, largest_palindrome = x, y, p 
+          end
+      end
+  end
 
-    # if no palindrome was found:
-    return (0, 0, 0)
+  # if no palindrome was found:
+  return (a, b, a*b)
 end;
 
 p4()
@@ -436,6 +442,53 @@ def p4():
 <p>$2520$ is the smallest number that can be divided by each of the numbers from $1$ to $10$ without any remainder.</p>
 <p>What is the smallest positive number that is <dfn class="tooltip">evenly divisible<span class="tooltiptext">divisible with no remainder</span></dfn> by all of the numbers from $1$ to $20$?</p>
 :::
+
+### Julia
+```{julia}
+function prime_decomposition(n::Integer)
+    possible_primes = sieve_of_eratosthenes(n)
+    temp_n = n
+    dec = Int32[]
+
+    while temp_n > 1
+        for p ∈ possible_primes
+            q, r = divrem(temp_n, p)            
+            if iszero(r)
+                temp_n = temp_n ÷ p
+                push!(dec, p)
+                break
+            end
+        end
+    end
+    return dec
+end;
+
+function p5()
+    decomposition = map(prime_decomposition, 2:20)
+    distinct_primes = vcat(decomposition...) |> unique
+
+    count_matrix = 
+    map(distinct_primes) do p
+        map(decomposition) do d
+            count(==(p), d)
+        end
+    end |> stack
+
+    primes_powers = map(maximum, eachcol(count_matrix))
+
+    n = (distinct_primes .^ primes_powers) |> prod
+
+    return n
+end;
+
+p5()
+```
+
+```{julia}
+using BenchmarkTools;
+@benchmark p5()
+```
+
 
 ### Python
 

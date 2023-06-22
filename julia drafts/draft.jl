@@ -114,6 +114,45 @@ p4()
 
 reverse(100:999)
 
+# 5
+function prime_decomposition(n::Integer)
+    possible_primes = sieve_of_eratosthenes(n)
+    temp_n = n
+    dec = Int32[]
+
+    while temp_n > 1
+        for p ∈ possible_primes
+            q, r = divrem(temp_n, p)            
+            if iszero(r)
+                temp_n = temp_n ÷ p
+                push!(dec, p)
+                break
+            end
+        end
+    end
+    return dec
+end
+
+function p5()
+    decomposition = map(prime_decomposition, 2:20)
+    distinct_primes = vcat(decomposition...) |> unique
+
+    count_matrix = 
+    map(distinct_primes) do p
+        map(decomposition) do d
+            count(==(p), d)
+        end
+    end |> stack
+
+    primes_powers = map(maximum, eachcol(count_matrix))
+
+    n = (distinct_primes .^ primes_powers) |> prod
+
+    return n
+end
+
+p5()
+
 # 8
 function p8()
     big_string = "73167176531330624919225119674426574742355349194934
@@ -159,7 +198,26 @@ function p8()
 
 reduce(*, a)
 
+# 9
+n = 25
+is_perfect_square(n::Integer) = isqrt(n)^2 == n
 
+function p9()
+    for a ∈ 1:999
+        for b ∈ 1:999            
+            c = 1000 - a - b
+            c >= 1 || continue
+            a^2 + b^2 == c^2 || continue                        
+            return a, b, c
+        end
+    end
+end
+
+p9()
+
+@benchmark p9()
+findnext
+# 9
 using JuMP; using SCIP;
 
 model = Model(SCIP.Optimizer)
@@ -174,3 +232,44 @@ optimize!(model)
 model
 objective_value(model)
 x = value(a), value(b), value(c)
+
+
+
+is_divisible_by(n::Integer, q::Integer) = n % q == 0
+is_divisible_by(10, 5)
+
+primes = [2, 3]
+
+function find_next_prime(primes)
+    n = primes[end]
+    while true        
+        n += 2
+
+        not_prime = false
+    
+        for q ∈ primes
+            not_prime = is_divisible_by(n, q)
+            if not_prime
+                break                
+            end            
+        end
+
+        if not_prime 
+            continue 
+        end
+    
+        return(n)        
+    end    
+end;
+
+function find_n_primes(n::Integer)
+    primes = [2, 3]
+    while length(primes) < n
+        next_prime = find_next_prime(primes)
+        push!(primes, next_prime)
+    end
+
+    return primes
+end;
+
+find_n_primes(100000)
