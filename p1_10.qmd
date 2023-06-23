@@ -50,6 +50,25 @@ using BenchmarkTools;
 @benchmark p1()
 ```
 
+### Julia (faster)
+
+```{julia}
+function p1()
+    s = 0
+    for i ∈ 1:999
+        (i % 3 == 0) || (i % 5 == 0) || continue
+        s += i
+    end
+    return s
+end;
+
+p1()
+```
+
+```{julia}
+using BenchmarkTools
+@benchmark p1()
+```
 
 ### R
 
