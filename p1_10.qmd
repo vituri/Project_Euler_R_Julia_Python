@@ -135,7 +135,21 @@ p1()
 ```
 
 ```{python}
-# p1()
+# using numpy only!
+def sum_of_multiples(numbers = np.array([3, 5]), roof = 1000):
+
+    below_roof = np.arange(0, roof - 1) + 1
+    
+    broadcast_dim = (len(numbers), len(below_roof))
+    
+    numbers_bc = np.broadcast_to(np.ones(len(below_roof)).T, broadcast_dim) * numbers[..., None]
+    roof_bc = np.broadcast_to(below_roof.T, broadcast_dim)
+    
+    divisibility = roof_bc % numbers_bc == 0
+    
+    return sum(np.unique(divisibility * roof_bc))
+
+p1()
 ```
 
 ## Problem 2
